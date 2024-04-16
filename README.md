@@ -55,7 +55,7 @@
 
   | TITLE | PROJECT DESCRIPTION | BUILT-IN   |
   |:---:|:---:|:---:|
-  | project title|brief description of the project|main languages the project will be built with|
+  | 1.[Genesis]() |a notes taking app|- html, css and javascript for the clientside - flask for the backend|
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
