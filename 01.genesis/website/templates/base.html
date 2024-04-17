@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Genesis | {% block title %} Gensis {% endblock %} </title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css"> -->
+</head>
+<body>
+
+	{% if form.errors %}
+		<ul class="errors">
+			{% for field_name, field_errors in form.errors|dictsort if field_errors %}
+				{% for error in field_errors %}
+					<li>{{ form[field_name].label }}: {{ error }}</li>
+				{% endfor %}
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+
+    {% block body%}
+
+
+    {% endblock %}
+
+    <script type="text/javascript" src="static/js/script.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -7,15 +7,15 @@
 
 <!-- TABLE OF CONTENTS IN MARKDOWN -->
 ### TABLE OF CONTENTS
-1. [About the project]()
-    - Project List
-1. [Getting Started]()
-    - [Prerequisites]()
-    - [Installation]()
-1. [Contributing]()
-1. [Contact]()
-1. [Acknowledgments]()
-1. [License]()
+1. [About the project](#about-the-project)
+    - [Project list](#project-list)
+1. [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+1. [Contributing](#contributing)
+1. [Contact](#contact)
+1. [Acknowledgments](#acknowledgments)
+1. [License](#license)
 
 
  <!-- TABLE OF CONTENTS IN HTML-->
@@ -55,7 +55,7 @@
 
   | TITLE | PROJECT DESCRIPTION | BUILT-IN   |
   |:---:|:---:|:---:|
-  | 1.[Genesis]() |a notes taking app|- html, css and javascript for the clientside - flask for the backend|
+  | 1.[Genesis](./01.genesis/README.md) |a notes taking app|- html, css and javascript for the clientside - flask for the backend|
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -71,19 +71,23 @@
 
  * for Flask
    ```sh
-   $ flask --version
-   #Python 3.10.14
-   #Flask 3.0.3
-   #Werkzeug 3.0.2
+
+    admin@fedora:~$ source .flaskVenv/bin/activate
+    (.flaskVenv) admin@fedora:~$ python -m flask --version
+    # -> Python 3.10.14
+    # -> Flask 3.0.3
+    # -> Werkzeug 3.0.2
+
    ```
 
  * for Django
    ```sh
-   $ python
-   >>> import django
-   >>> django.get_version()
-   ...
-   #'5.0.4'
+
+   admin@fedora:~$ source .djangoVenv/bin/activate
+   (.djangoVenv) admin@fedora:~$ python -m django --version
+   # -> 5.0.4
+
+
    ```
 
    > Remember that its is always a good practice develop in a virtual environment to prevent possible breakage with future updates.
