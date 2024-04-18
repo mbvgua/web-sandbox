@@ -1,1 +1,209 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+/* style the navbar */
+.navbar{
+    background-color: #00458E;
+}
+.navbar .logo{
+    margin-left: 10%;
+}
+.navbar a{
+    font-size: 2rem;
+}
+
+.main-container{
+    display: flex;
+}
+
+/* style the sidebar */
+.sidebar{
+    position: relative;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 80px;
+	background-color: #3380DE;
+	padding: .4rem .4rem;/* Order followed is: {Top & bottom} {Left & Right} */
+	transition: all 0.5s ease;
+}
+.sidebar.active ~ .main-content{
+    left: 250px;
+    width: calc(100% - 250px)
+}
+.sidebar.active{
+    width: 250px;
+}
+
+/* position of button when sidebar is inactive */
+.sidebar #btn {
+	position: relative;
+	color: white;
+	top: .4rem;
+	left: 50%;
+	font-size: 1.2rem;
+	line-height: 50px;
+	transform: translateX(-50%);
+	cursor: pointer;
+}
+
+/* position of button when sidebr is active */
+.sidebar.active #btn{
+    position: absolute;
+	left: 90%;
+    font-size: 2.3rem;
+}
+
+/* sidebar top components */
+.sidebar .top .logo{
+	color: #fff;
+	display: inline-flex;
+	height: 50px;
+	width: 100%;
+	align-items: center;
+	pointer-events: none;
+	opacity: 0;
+	transition-delay: 0.1s;		/* allow entire nav to move before display text */
+}
+
+/* sideba top componenets when active */
+.sidebar.active .top .logo{
+	opacity: 1;
+	font-size: 1.5rem;
+}
+
+/*style the icon in the logo*/
+.top .logo i{
+	font-size: 2rem;
+	margin-right: 5px;
+}
+
+/*style the user */
+.user{
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.sidebar .user-profile-pic{
+	height: 50px;
+	width: 55px;
+	border-radius: 100%;
+	border: 3px solid black;
+    transition-delay: 0.4s;
+}
+.sidebar.active .user-profile-pic{
+	height: 75%;
+	width: 55%;
+	border-radius: 100%;
+	border: 3px solid black;
+}
+
+.user-name{
+	color: #fff;
+	opacity: 1;
+	margin-left: 1rem;
+	font-weight: 600;
+	width: fit-content;
+}
+
+/* username when side bar is inactive */
+.sidebar .user-name{
+	opacity: 0;
+}
+/* username when side bar is active */
+.sidebar.active .user-name{
+	opacity: 1;
+}
+/* styling of the ul */
+.sidebar .menu ul{
+	padding-left: 0.5rem;	/* WROTE THIS TO OVERRIDE THE BOOTSTRAP CLASS STYLING OF 2rem in ul*/
+}
+/* styling of the ul */
+.sidebar .menu ul li{
+	position: relative;
+	list-style-type: none;
+    left: 0px;
+    margin-left: 0px;
+	height: 50px;
+	width: 90%;
+	margin: 0.8rem auto;	/* Order followed is: {Top & bottom} {Left & Right}  */
+	line-height: 50px;
+}
+
+/* style the tags */
+.sidebar .menu i{
+	font-size: 35px;
+}
+.sidebar.active .menu i{
+	font-size: 33px;
+}
+.sidebar .menu a {
+	color: #fff;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	border-radius: 0.8rem;
+}
+.sidebar .menu a:hover{
+	background-color: #fff;
+	color: #12171e;
+}
+.sidebar .menu a i {
+	min-width: 50px;
+	text-align: center;
+	height: 50px;
+	border-radius: 12px;
+	line-height: 50px;
+}
+.sidebar .menu .nav-item{
+	opacity: 0;
+	white-space: nowrap;	/* prevents long text from going to the next line */
+}
+.sidebar.active .menu .nav-item{
+	opacity: 1;
+	transition-delay: 0.1s;		/* allow entire nav to move before display text */
+	white-space: nowrap;	/* prevents long text from going to the next line */
+}
+.sidebar .menu .sidebar-tooltip{
+	white-space: nowrap;	/* prevents long text from going to the next line */
+	position: absolute;
+	left: 170px;
+	width: fit-content;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.3);
+	border-radius: 0.6rem;
+	padding: 0.4rem 0.6rem;		/* Order followed is: {Top & bottom} {Left & Right}  */
+	line-height: 1.8rem;
+	z-index: 20;	/*what does this do? Makes them invisible */
+	opacity: 0;		/*will shown only on hover. else invisible*/
+}
+.sidebar .menu ul li:hover .sidebar-tooltip{
+	opacity: 1;
+	background-color: #fff;		/* make it not blend with main div text  */
+}
+
+.sidebar.active .menu .sidebar-tooltip{
+	display: none;
+}
+
+.main-content{
+    padding: 1rem;
+    top: 0px;
+	/* height: 100%; -> if ommited the browser figures for itself*/
+	left: 80px;	/* this is leaving out space of inactive sidebar */
+	width: calc(100% - 80px);	/*100% screen minus size of inactive sidebar*/
+    /* background-color: #B3BCC7; */
+    background-color: #A5B0BD;
+    transition: all 0.5s ease;
+}
+.footer{
+    background-color: #00458E;
+    text-align: center;
+    margin-bottom: 0px;
+}

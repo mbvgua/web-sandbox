@@ -4,6 +4,100 @@
 
 {% block body %}
 
-    <h1> This is the Homepage </h1>
+    <div class="sidebar">
+
+
+        <!-- topmost logo part -->
+        <div class="top">
+            <!-- <div class="logo">
+                <i class="bx bxs-edit"></i>
+                <span> Hi, there! </span>
+            </div> -->
+            <i class="bx bx-menu" id="btn"></i>
+        </div>
+
+
+        <!-- part with user dp and name -->
+        <div class="user">
+
+            <img src="static/images/anon_user.jpg" alt="Profile" class="user-profile-pic">
+
+            <p class="user-name"> mbvgua </p>
+
+        </div>
+
+        <!-- list of menu panel -->
+        <div class="menu">
+
+            <ul>
+
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-dashboard'></i>
+                        <span class="nav-item">Dashboard </span>
+                    </a>
+                    <span class="sidebar-tooltip"> Dashboard </span>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-home-alt-2' ></i>
+                        <span class="nav-item">Home </span>
+                    </a>
+                    <span class="sidebar-tooltip"> Home </span>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-user'></i>
+                        <span class="nav-item">Profile </span>
+                    </a>
+                    <span class="sidebar-tooltip"> Profile </span>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-cog' ></i>
+                        <span class="nav-item">Settings </span>
+                    </a>
+                    <span class="sidebar-tooltip"> Settings </span>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-chat'></i>
+                        <span class="nav-item">Notifications </span>
+                    </a>
+                    <span class="sidebar-tooltip"> Notifications </span>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-help-circle'></i>
+                        <span class="nav-item">Help & Support </span>
+                    </a>
+                    <span class="sidebar-tooltip"> Help & Support </span>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-log-out'></i>
+                        <span class="nav-item"> Logout </span>
+                    </a>
+                    <span class="sidebar-tooltip"> Logout </span>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- main div content -->
+    <div class="main-content">
+
+        <h1> Huku ni wapi? </h1>
+
+    </div>
 
 {% endblock %}

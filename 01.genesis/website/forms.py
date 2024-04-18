@@ -3,10 +3,6 @@ from wtforms.validators import  InputRequired,Length,EqualTo,DataRequired
 from flask_wtf.file import FileField,FileRequired
 
 
-
-class MyForm(Form):
-...     username = StringField('Username', validators=[Length(min=5,message=('not a valida name'))], default='test')
-
 class SignUpForm(Form):
     email = EmailField('Enter Email Address', validators=[DataRequired(),Length(10,40)])
     username = StringField('Enter Username', validators=[DataRequired(),Length(3,15)])
