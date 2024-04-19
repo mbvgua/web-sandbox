@@ -23,6 +23,26 @@
 	  </div>
 	</nav>
 
+	<label>
+		<i class='bx bx-moon'></i>
+		dark Theme
+		<i class='bx bx-sun' ></i>light theme
+		<i class='bx bx-envelope' ></i> email
+		<i class='bx bx-user'></i> user name
+		<i class='bx bx-low-vision'></i>password
+		<i class='bx bx-log-in-circle'></i>login
+		<i class='bx bx-log-out-circle'></i>logout
+		<i class='bx bx-note'></i>note
+		<i class='bx bxs-eraser'></i>erase
+		<i class='bx bx-message-square-add'></i>new
+		<i class='bx bx-message-square-minus'></i>delete
+	</label>
+
+	<!-- get the flashed messages -->
+   {% for message in messages %}
+       {{ message }}
+   {% endfor %}
+
 
 	<div class="main-container">
 	    {% block body%}

@@ -1,10 +1,12 @@
-{% extends 'base.html' %}
+{% extends 'forms.html' %}
 
 {% block title %} Login {% endblock %}
 
 {% block body %}
 
-<form action="" method="POST">
+<form method="POST" >
+    {{form.hidden_tag()}}
+    {{form.csrf_token}}
     <fieldset>
 
         <h1 align="center"> Login </h1>

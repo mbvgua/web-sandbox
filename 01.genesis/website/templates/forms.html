@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Genesis : {% block title %} Gensis {% endblock %} </title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>	<!-- box icons -->
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark "> <!--bg-dark fixed-top"> -->
+	  <div class="navbar-nav mr-auto container-fluid">
+		  <a class="navbar-brand" href="#">
+			  <i class='bx bxs-edit logo' class="d-inline-block align-text-top" alt="logo"></i>
+			  Genesis
+		  </a>
+		  <form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-primary" type="submit"> Search</button>
+		  </form>
+	  </div>
+	</nav>
+
+   <label>
+       <i class='bx bx-moon'></i>
+       dark Theme
+       <i class='bx bx-sun' ></i>light theme
+       <i class='bx bx-envelope' ></i> email
+       <i class='bx bx-user'></i> user name
+       <i class='bx bx-low-vision'></i>password
+       <i class='bx bx-log-in-circle'></i>login
+       <i class='bx bx-log-out-circle'></i>logout
+       <i class='bx bx-note'></i>note
+       <i class='bx bxs-eraser'></i>erase
+       <i class='bx bx-message-square-add'></i>new
+       <i class='bx bx-message-square-minus'></i>delete
+   </label>
+
+	<!-- get the flashed messages -->
+   {% for message in messages %}
+       {{ message }}
+   {% endfor %}
+
+
+   <!-- alert message for from errors -->
+   {% if form.errors %}
+   <ul class="errors">
+       {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+       {% for error in field_errors %}
+       <li>{{ form[field_name].label }}: {{ error }}</li>
+       {% endfor %}
+       {% endfor %}
+   </ul>
+   {% endif %}
+
+
+   <div class="main-container">
+       {% block body%}
+
+
+       {% endblock %}
+   </div>
+
+   <footer class="footer">
+        <p>Copyright &#169; 2024 Genesis Project. All Rights Reserved.</p>
+      </footer>
+
+      <script type="text/javascript" src="static/js/script.js"></script>
+      <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
+  </body>
+  </html>

@@ -1,10 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'forms.html' %}
 
 {% block title %} Signup {% endblock %}
 
 {% block body %}
 
-    <form action="" method="POST">
+
+    <form method="POST" action="{{url_for('auth.signup')}}">
+        {{form.hidden_tag()}}
+        {{form.csrf_token}}
         <fieldset>
 
             <h1 align="center"> Signup </h1>
