@@ -4,6 +4,30 @@
 
 {% block body %}
 
-    <h1> This is the login page </h1>
+<form action="" method="POST">
+    <fieldset>
 
+        <h1 align="center"> Login </h1>
+
+        <div>
+            {{ form.email.label}}
+            {{ form.email}}
+        </div>
+
+        <div>
+            {{ form.password.label}}
+            {{ form.password}}
+        </div>
+
+        <div>
+            {{ form.remember_me}}
+            {{ form.remember_me.label}}
+        </div>
+
+        <div>
+            {{ form.login}}
+        </div>
+
+    </fieldset>
+</form>
 {% endblock %}

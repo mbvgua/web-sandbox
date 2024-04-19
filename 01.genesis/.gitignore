@@ -1,1 +1,4 @@
 instance/
+*.svg
+*.jpg
+*.png
