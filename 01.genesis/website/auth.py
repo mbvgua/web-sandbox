@@ -1,5 +1,5 @@
 from flask import Blueprint,render_template,redirect, url_for,request,flash
-from flask_login import login_user
+from flask_login import login_user,logout_user,login_required
 from .forms import SignUpForm, LoginForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import User
@@ -69,6 +69,10 @@ def login():
 
 
 @auth.route('logout', methods=['GET', 'POST'])
+@login_required
 def logout():
+    logout_user()
+    message = 'Youve been logged out!'
+    flash(message)
 
     return redirect(url_for('auth.login'))
