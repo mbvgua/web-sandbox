@@ -231,7 +231,7 @@
 .auth-form{
     display: flex;
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
 }
 /* .auth-form label{
     trying to align labels to the left despite having avatar
@@ -259,7 +259,6 @@
 	border-radius: 40px;
 	height: 50px;
 	font-weight: 500;
-/*	border: 0.1px solid;*/
 }
 .auth-form .remember-forgot{
     line-height: 40px;    /*spacin between the rows*/
