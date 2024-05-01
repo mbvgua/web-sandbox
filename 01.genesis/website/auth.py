@@ -1,5 +1,5 @@
 from flask import Blueprint,render_template,redirect, url_for,request,flash
-from flask_login import login_user,logout_user,login_required
+from flask_login import login_user,logout_user,login_required,current_user
 from .forms import SignUpForm, LoginForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import User
@@ -34,6 +34,7 @@ def signup():
                 db.session.add(new_user)
                 db.session.commit()
                 flash('congrats youve created an acc')
+                login_user(new_user, remember=remember_me)
                 return redirect(url_for('views.index'))
             except Exception as e:
                 print (e)
@@ -57,6 +58,7 @@ def login():
             if check_password_hash(user.password, password):
                 print('being logged in')
                 flash('youve been logged in')
+                login_user(user, remember=remember_me)
                 return redirect(url_for('views.index'))
             else:
                 message = 'an error occurred while loggin you in. try again?'
