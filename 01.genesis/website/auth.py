@@ -25,21 +25,23 @@ def signup():
         user = User.query.filter_by(email=email).first()
 
         if user:
-            message = 'no! account already exists'
-            flash(message)
+            message = 'Oops! Looks like the account already exists. Try logging in instead?'
+            flash(message, category='warning')
         else:
             try:
                 new_user = User(name=name, email=email,
                     password=generate_password_hash(password))
                 db.session.add(new_user)
                 db.session.commit()
-                flash('congrats youve created an acc')
+                message = 'Congratulations! You have succesfully created an account.'
+                flash(message, category='success')
+
                 login_user(new_user, remember=remember_me)
                 return redirect(url_for('views.index'))
             except Exception as e:
                 print (e)
-                message = 'an error occurred while loggin you in. try again?'
-                flash(message)
+                message = 'Oops! Looks like an error occurred while registering your account.Try again?'
+                flash(message, category='danger')
 
     return render_template('signup.html', form=form)
 
@@ -57,15 +59,16 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 print('being logged in')
-                flash('youve been logged in')
+                message = 'Congratulations! You have been logged in successfully.'
+                flash(message, category='success')
                 login_user(user, remember=remember_me)
                 return redirect(url_for('views.index'))
             else:
-                message = 'an error occurred while loggin you in. try again?'
-                flash(message)
+                message = 'Oops! Looks like an error occurred while logging you in. Try again?'
+                flash(message, category="warning")
         else:
-            message = 'Oops. You do not have an account'
-            flash(message)
+            message = 'Oops! Looks like you do not have an account... try creating one instead?'
+            flash(message, category='warning')
 
     return render_template('login.html',form=form)
 
@@ -74,7 +77,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    message = 'Youve been logged out!'
-    flash(message)
+    message = 'Oops! You have been logged out.Try loggin back in again?'
+    flash(message, category='danger')
 
     return redirect(url_for('auth.login'))

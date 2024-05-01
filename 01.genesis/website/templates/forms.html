@@ -16,10 +16,11 @@
 			  <i class='bx bxs-edit logo' class="d-inline-block align-text-top" alt="logo"></i>
 			  Genesis
 		  </a>
-		  <form class="d-flex" role="search">
+		  <!-- <form class="d-flex" role="search">
 			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 			  <button class="btn btn-primary" type="submit"> Search</button>
-		  </form>
+		  </form> -->
+		 
 	  </div>
 	</nav>
 
@@ -27,9 +28,6 @@
        <i class='bx bx-moon'></i>
        dark Theme
        <i class='bx bx-sun' ></i>light theme
-       <i class='bx bx-envelope' ></i> email
-       <i class='bx bx-user'></i> user name
-       <i class='bx bx-low-vision'></i>password
        <i class='bx bx-log-in-circle'></i>login
        <i class='bx bx-log-out-circle'></i>logout
        <i class='bx bx-note'></i>note
@@ -39,9 +37,14 @@
    </label>
 
 	<!-- get the flashed messages -->
-   {% for message in messages %}
-       {{ message }}
-   {% endfor %}
+	{% with messages=get_flashed_messages(with_categories=true) %}
+		{% for category, message in messages %}
+			<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+				{{ message }}
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		{% endfor %}
+	{% endwith %}
 
 
    <!-- alert message for from errors -->

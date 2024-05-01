@@ -18,8 +18,8 @@ def create_app():
     login_manager = LoginManager()
     login_manager.init_app(app)
     login_manager.login_view = 'auth.login' #redirect here.if user isnt logged in
-    # login_manager.login_messsage = '' #message to flash
-    # login_manager.login_message_category = ''
+    login_manager.login_message = 'Oh no! You have to be logged in to acces this page' #message to flash
+    login_manager.login_message_category = 'danger'
     @login_manager.user_loader
     def load_user(id):
         """

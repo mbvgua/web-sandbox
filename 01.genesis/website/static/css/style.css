@@ -231,7 +231,9 @@
 .auth-form{
     display: flex;
     align-items: center;
+    justify-content: space-around;
     /* text-align: center; */
+    /* border: 2px solid; */
 }
 /* .auth-form label{
     trying to align labels to the left despite having avatar
@@ -244,7 +246,7 @@
 }
 .auth-form h1{
     font-size: 2.9rem;
-    margin:15px 0;
+    margin:10px 0;
     color:#333;
     text-transform: uppercase;    /*transform text to uppercase*/
 }
