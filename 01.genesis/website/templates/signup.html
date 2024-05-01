@@ -3,45 +3,68 @@
 {% block title %} Signup {% endblock %}
 
 {% block body %}
+<div class="auth-container">
 
+<div class="auth-image">
+    <img src="static/images/undraw_sign_up_ln1s_-1-_s4bc_-1-_ee41_-1-_m3af.svg">
+</div>
 
+<div class="auth-form">
     <form method="POST" action="{{url_for('auth.signup')}}">
         {{form.hidden_tag()}}
         {{form.csrf_token}}
         <fieldset>
 
+            <img class="avatar" src="static/images/undraw_pic_profile_re_7g2h.svg">
             <h1 align="center"> Signup </h1>
 
-            <div>
-                {{ form.email.label}}
-                {{ form.email}}
-            </div>
+            <div class="form-group">
+                <i class='bx bx-envelope' ></i>
+				{{ form.email.label }}
+				{{ form.email(class='form-control', placeholder='Enter Email') }}
+			</div>
 
-            <div>
-                {{ form.username.label}}
-                {{ form.username}}
-            </div>
+			<div class="form-group">
+                <i class='bx bx-user'></i>
+				{{ form.username.label }}
+				{{ form.username(class='form-control', placeholder='Enter Username') }}
+			</div>
 
-            <div>
-                {{ form.password.label}}
-                {{ form.password}}
-            </div>
+			<div class="form-group">
+                <i class='bx bx-low-vision'></i>
+				{{ form.password.label }}
+				{{ form.password(class='form-control', placeholder='Enter Paswword') }}
+			</div>
 
-            <div>
-                {{ form.confirm_password.label}}
-                {{ form.confirm_password}}
-            </div>
+			<div class="form-group">
+                <i class='bx bx-low-vision'></i>
+				{{ form.confirm_password.label }}
+				{{ form.confirm_password(class='form-control', placeholder='Confirm Password') }}
+			</div>
 
-            <div>
-                {{ form.remember_me}}
-                {{ form.remember_me.label}}
-            </div>
 
-            <div>
-                {{ form.signup}}
-            </div>
+			<div class="remember-forgot">
+				<label>
+					{{ form.remember_me }}
+					{{ form.remember_me.label }}
+				</label>
+				<a href="#"> Forgot Password </a>
+			</div>
 
-        </fieldset>
+
+			<div align="center" class="form-group">
+				{{ form.signup(class='btn btn-primary') }}
+			</div>
+
+			<div class="signup-link">
+				<p>
+					Already have an account? <a href="{{url_for('auth.login')}}"> Login </a> instead
+				</p>
+			</div>
+
+
+		</fieldset>
     </form>
+</div>
 
 {% endblock %}

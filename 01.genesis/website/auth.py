@@ -25,11 +25,12 @@ def signup():
         user = User.query.filter_by(email=email).first()
 
         if user:
-            message = 'no! acc already exists'
+            message = 'no! account already exists'
             flash(message)
         else:
             try:
-                new_user = User(name=name, email=email,password=generate_password_hash(password))
+                new_user = User(name=name, email=email,
+                    password=generate_password_hash(password))
                 db.session.add(new_user)
                 db.session.commit()
                 flash('congrats youve created an acc')

@@ -9,11 +9,11 @@ class SignUpForm(FlaskForm):
     # discovered wtforms->Form does not capture data at all.
     # always use flask_wtf->FlaskForm instead
     """
-    email = EmailField('Enter Email Address', validators=[InputRequired(),
+    email = EmailField('Email Address', validators=[InputRequired(),
         Length(10,40)])
-    username = StringField('Enter Username', validators=[InputRequired(),
+    username = StringField('Username', validators=[InputRequired(),
         Length(3,15)])
-    password = PasswordField('Enter Password', validators=[InputRequired(),
+    password = PasswordField('Password', validators=[InputRequired(),
         Length(5,20)])
     confirm_password = PasswordField('Confirm Password',validators=[
         InputRequired(),EqualTo('password',message=
@@ -26,7 +26,7 @@ class LoginForm(FlaskForm):
     """
     class inherits from FlaskForm to define attributes of Login form class
     """
-    email = EmailField('Enter Email Address', validators=[InputRequired(),Length(10,40)])
-    password = PasswordField('Enter Password', validators=[InputRequired(),Length(7,20)])
+    email = EmailField('Email Address', validators=[InputRequired(),Length(10,40)])
+    password = PasswordField('Password', validators=[InputRequired(),Length(7,20)])
     remember_me = BooleanField('Remember Me?')
     login =  SubmitField('Login')

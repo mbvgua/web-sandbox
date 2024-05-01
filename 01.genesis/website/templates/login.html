@@ -3,33 +3,56 @@
 {% block title %} Login {% endblock %}
 
 {% block body %}
+<div class="auth-container">
 
-<form method="POST" >
-    {{form.hidden_tag()}}
-    {{form.csrf_token}}
-    <fieldset>
+<div class="auth-image">
+    <img src="static/images/undraw_login_re_4vu2.svg">
+</div>
 
-        <h1 align="center"> Login </h1>
+<div class="auth-form">
+    <form method="POST" >
+        {{form.hidden_tag()}}
+        {{form.csrf_token}}
+        <fieldset>
 
-        <div>
-            {{ form.email.label}}
-            {{ form.email}}
-        </div>
+            <img class="avatar" src="static/images/undraw_pic_profile_re_7g2h.svg">
+            <h1 align="center"> Login </h1>
 
-        <div>
-            {{ form.password.label}}
-            {{ form.password}}
-        </div>
+            <div class="form-group">
+                <i class='bx bx-envelope' ></i>
+				{{ form.email.label }}
+				{{ form.email(class='form-control', placeholder='Enter Email') }}
+			</div>
 
-        <div>
-            {{ form.remember_me}}
-            {{ form.remember_me.label}}
-        </div>
+			<div class="form-group">
+                <i class='bx bx-low-vision'></i>
+				{{ form.password.label }}
+				{{ form.password(class='form-control', placeholder='Enter Password') }}
+			</div>
 
-        <div>
-            {{ form.login}}
-        </div>
+			<div class="remember-forgot">
+				<label>
+					{{ form.remember_me }}
+					{{ form.remember_me.label }}
+				</label>
+				<a href="#"> Forgot Password </a>
+			</div>
 
-    </fieldset>
-</form>
+			<div align="center" class="form-group">
+				{{ form.login(class='btn btn-primary') }}
+			</div>
+
+
+			<div class="signup-link">
+				<p>
+					Don't have an account? <a href="{{url_for('auth.signup')}}"> Sign Up </a> now
+				</p>
+			</div>
+
+
+		</fieldset>
+    </form>
+</div>
+
+</div>
 {% endblock %}
