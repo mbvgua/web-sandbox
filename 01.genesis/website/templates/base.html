@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title> Genesis : {% block title %} Gensis {% endblock %} </title>
+	<title> Genesis : {% block title %} Genesis {% endblock %} </title>
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>	<!-- box icons -->
@@ -16,13 +16,14 @@
 			  <i class='bx bxs-edit logo' class="d-inline-block align-text-top" alt="logo"></i>
 			  Genesis
 		  </a>
+		  {% if user.is_authenticated %}
 		  <form class="d-flex" role="search">
 			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 			  <button class="btn btn-primary" type="submit"> Search</button>
 		  </form>
+		  {% endif %}
 	  </div>
 	</nav>
-
 
 	<!-- get the flashed messages -->
 	{% with messages=get_flashed_messages(with_categories=true) %}
@@ -34,6 +35,17 @@
 		{% endfor %}
 	{% endwith %}
 
+	<label>
+        <i class='bx bx-moon'></i>
+        dark Theme
+        <i class='bx bx-sun' ></i>light theme
+        <i class='bx bx-log-in-circle'></i>login
+        <i class='bx bx-log-out-circle'></i>logout
+        <i class='bx bx-note'></i>note
+        <i class='bx bxs-eraser'></i>erase
+        <i class='bx bx-message-square-add'></i>new
+        <i class='bx bx-message-square-minus'></i>delete
+    </label>
 
 	<div class="main-container">
 	    {% block body%}
@@ -41,6 +53,7 @@
 
 	    {% endblock %}
 	</div>
+
 
 
 	<footer class="footer">

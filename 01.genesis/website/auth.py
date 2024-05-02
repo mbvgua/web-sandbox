@@ -43,7 +43,7 @@ def signup():
                 message = 'Oops! Looks like an error occurred while registering your account.Try again?'
                 flash(message, category='danger')
 
-    return render_template('signup.html', form=form)
+    return render_template('signup.html', form=form, user=current_user)
 
 
 @auth.route('login', methods=['GET', 'POST'])
@@ -70,7 +70,7 @@ def login():
             message = 'Oops! Looks like you do not have an account... try creating one instead?'
             flash(message, category='warning')
 
-    return render_template('login.html',form=form)
+    return render_template('login.html',form=form, user=current_user)
 
 
 @auth.route('logout', methods=['GET', 'POST'])
