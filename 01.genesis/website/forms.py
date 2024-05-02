@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import Form,StringField,EmailField,PasswordField,BooleanField,SubmitField,TextAreaField
+from wtforms import Form,StringField,EmailField,PasswordField,BooleanField,SubmitField,TextAreaField,FileField
 from wtforms.validators import  InputRequired,Length,EqualTo,DataRequired
-from flask_wtf.file import FileField,FileRequired
+from flask_wtf.file import FileRequired
 
 class SignUpForm(FlaskForm):
     """
@@ -18,6 +18,7 @@ class SignUpForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password',validators=[
         InputRequired(),EqualTo('password',message=
             ('Oops! It looks like your passwords do not match. Try again?'))])
+    profile_pic = FileField('Choose Avatar', validators=[FileRequired()])
     remember_me = BooleanField('Remember Me?')
     signup = SubmitField('Submit')
 

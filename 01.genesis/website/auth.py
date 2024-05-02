@@ -2,6 +2,7 @@ from flask import Blueprint,render_template,redirect, url_for,request,flash
 from flask_login import login_user,logout_user,login_required,current_user
 from .forms import SignUpForm, LoginForm
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 from .models import User
 from . import db
 
@@ -19,7 +20,14 @@ def signup():
         name = form.username.data
         password = form.password.data
         confirm_password = form.confirm_password.data
+        profile_pic = form.profile_pic.data
         remember_me = True if form.remember_me.data == True else False
+
+        # remove invalid characaters from the filename e.g $,%,space
+        file = secure_filename(profile_pic.filename)
+        file_path = f'./avatar/{file}'  # setup directory to store files
+        profile_pic.save(file_path)
+        print('file saved succesfully!')
 
         # check to see if the user already exists in the database
         user = User.query.filter_by(email=email).first()
@@ -30,7 +38,8 @@ def signup():
         else:
             try:
                 new_user = User(name=name, email=email,
-                    password=generate_password_hash(password))
+                    password=generate_password_hash(password),
+                    profile_pic=file_path)
                 db.session.add(new_user)
                 db.session.commit()
                 message = 'Congratulations! You have succesfully created an account.'

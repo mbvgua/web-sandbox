@@ -19,9 +19,11 @@
 
         <!-- part with user dp and name -->
         <div class="user">
-
+            {% if user.is_authenticated %}
+            <img src="{{user.profile_pic}}" alt="Profile" class="user-profile-pic">
+            {% else %}
             <img src="static/images/anon_user.jpg" alt="Profile" class="user-profile-pic">
-
+            {% endif %}
             <p class="user-name"> {{user.name.capitalize()}} </p>
 
         </div>
