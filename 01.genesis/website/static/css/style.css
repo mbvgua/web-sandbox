@@ -209,7 +209,7 @@
 /********************************/
 .auth-container{
     width:100vw;
-    height:100vh;
+    /* height:100vh; */
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
@@ -324,6 +324,7 @@
 /* style the footer */
 .footer{
     background-color: #00458E;
+    color: #fff;
     text-align: center;
     /* following ensure footer is fixed to bottom of page */
     position: fixed;
