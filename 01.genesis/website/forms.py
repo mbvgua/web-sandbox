@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import Form,StringField,EmailField,PasswordField,BooleanField,SubmitField,TextAreaField,FileField
+from wtforms import Form,StringField,EmailField,PasswordField,BooleanField,SubmitField,FileField,TextAreaField
 from wtforms.validators import  InputRequired,Length,EqualTo,DataRequired
 from flask_wtf.file import FileRequired
 
@@ -31,3 +31,13 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[InputRequired(),Length(7,20)])
     remember_me = BooleanField('Remember Me?')
     login =  SubmitField('Login')
+
+class NoteForm(FlaskForm):
+    """
+    class inherits from FlskForm to defines attributes of Notes adding forms
+    """
+    title = StringField('Select a title for your note', validators=[Length(min=2,max=100)])
+    content = TextAreaField('Give a description of the Note', validators=[Length(min=5,max=10000)])
+    add_note = SubmitField('Add note')
+    delete_note = SubmitField('Delete note')
+    submit = SubmitField('Submit')

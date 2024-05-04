@@ -3,6 +3,16 @@
 {% block title %} Homepage {% endblock %}
 
 {% block body %}
+<!-- alert message for from errors -->
+{% if form.errors %}
+<ul class="errors">
+    {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+    {% for error in field_errors %}
+    <li>{{ form[field_name].label }}: {{ error }}</li>
+    {% endfor %}
+    {% endfor %}
+</ul>
+{% endif %}
 
     <div class="sidebar">
 
@@ -97,9 +107,76 @@
 
     <!-- main div content -->
     <div class="main-content">
+        <div class="current-notes">
 
-        <h1> Desiderata by Max Erham </h1>
-        <p>Go placidly amid the noise and the haste, and remember what peace there may be in silence. As far as possible, without surrender, be on good terms with all persons.Speak your truth quietly and clearly; and listen to others, even to the dull and the ignorant; they too have their story.Avoid loud and aggressive persons; they are vexatious to the spirit. If you compare yourself with others, you may become vain or bitter, for always there will be greater and lesser persons than yourself.Enjoy your achievements as well as your plans. Keep interested in your own career, however humble; it is a real possession in the changing fortunes of time.Exercise caution in your business affairs, for the world is full of trickery. But let this not blind you to what virtue there is; many persons strive for high ideals, and everywhere life is full of heroism.Be yourself. Especially do not feign affection. Neither be cynical about love; for in the face of all aridity and disenchantment, it is as perennial as the grass.Take kindly the counsel of the years, gracefully surrendering the things of youth.Nurture strength of spirit to shield you in sudden misfortune. But do not distress yourself with dark imaginings. Many fears are born of fatigue and loneliness.Beyond a wholesome discipline, be gentle with yourself. You are a child of the universe no less than the trees and the stars; you have a right to be here.And whether or not it is clear to you, no doubt the universe is unfolding as it should. Therefore be at peace with God, whatever you conceive Him to be. And whatever your labors and aspirations, in the noisy confusion of life, keep peace in your soul. With all its sham, drudgery and broken dreams, it is still a beautiful world. Be cheerful. Strive to be happy.by Max Ehrmann ©1927</p>
-    </div>
+            {% if notes | length < 1 %}
+                <img src="/static/images/blank.jpg" alt="blank canvas">
+                <h2> Hmmm.... Your canvas looks a little empty. Try creating a new task? </h2>
+
+            {% else %}
+                <h1 align="center"> My Notes ⏳ </h1>
+
+                <div class="note-table">
+                    <table class="table table-striped table-secondary table-hover table-bordered border-dark table-responsive-md ">
+                        <caption> my notes :) </caption>
+
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col"> Note Title </th>
+                                <th scope="col"> Note Description </th>
+                                <th scope="col"> Date Added </th>
+                                <th scope="col"> Actions </th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="table-group-divider">
+                            {% for note in notes %}
+                            <tr class="">
+                                <td > {{note.title}} </td>
+                                <td > {{note.content}} </td>
+                                <td > Date : {{note.date_written.date()}} <br/> Time: {{note.date_written.time()}} </td>
+                                <td class="table-dark">
+                                    <a href="/update/{{note.id}}">
+                                        <i class='bx bxs-eraser'></i>
+                                            Update
+                                    </a>
+                                    <br>
+                                    <a href="/delete/{{note.id}}">
+                                        <i class='bx bx-message-square-minus'></i>
+                                            Delete
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+                {% endif %}
+        </div>
+
+
+        <div class="new-notes">
+            <h1 align="center"> Add a New Note 🎯 </h1>
+
+            <form action="{{url_for('views.index')}}" method="POST" >
+                {{form.hidden_tag()}}
+                {{form.csrf_token}}
+                <div >
+                    {{form.title(class='form-controll', placeholder='  Note title...')}}
+                </div>
+
+                <div >
+                    {{form.content(class='form-controll', placeholder='  Note Descrition...')}}
+                </div>
+
+                <div align="center">
+                    {{form.submit(class='btn btn-primary form-controll')}}
+                </div>
+            </form>
+
+        </div>
+
+</div>
 
 {% endblock %}

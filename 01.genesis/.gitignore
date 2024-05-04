@@ -1,5 +1,13 @@
+#ignore all the sqlite databases generated
+*.db.sqlite3
 instance/
+
+#ignore all image and pdf file uploads
 *.pyc
 *.svg
 *.jpg
 *.png
+*.pdf
+
+#ignore all jupyter notebook checkpoints
+*.ipynb

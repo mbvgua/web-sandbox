@@ -12,12 +12,15 @@ class User(db.Model,UserMixin):
     date_joined = db.Column(db.DateTime(), default=datetime.utcnow)
 
     # set up foreign key to notes table
-    notes = db.Relationship('Note', backref='users')
+    # note = db.relationship('Note', backref='user')
+    note = db.relationship('Note')
 
 class Note(db.Model):
     __tablename__ = 'notes'
-    id = db.Column(db.Integer, primary_key=True, index=True)
-    message = db.Column(db.Text(10000), nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.Text(100))
+    content = db.Column(db.Text(10000))
     date_written = db.Column(db.DateTime(), default=datetime.utcnow)
 
-    user_link = db.Column(db.Integer, db.ForeignKey('users.id'))
+    # user = db.relationship('User', backref='note')
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
