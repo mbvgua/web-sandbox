@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{%block title %} update note {% endblock %}
+
+{% block body %}
+
+
+<!-- main div content -->
+<div class="main-content">
+    <div class="new-notes">
+        <h1 align="center"> Update Your Note </h1>
+
+        <form method="POST" >
+            {{form.hidden_tag()}}
+            {{form.csrf_token}}
+            <div >
+                {{form.new_title(class='form-controll')}}
+            </div>
+
+            <div >
+                {{form.new_content(class='form-controll')}}
+            </div>
+
+            <div align="center">
+                {{form.update(class='btn btn-primary form-controll')}}
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
