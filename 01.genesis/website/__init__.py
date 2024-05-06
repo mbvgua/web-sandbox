@@ -1,10 +1,13 @@
 from flask import Flask, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 
 
 db = SQLAlchemy()
 db_name = 'db.sqlite3'
+admin = Admin(name='Genesis Admin', template_mode='bootstrap4')
 
 def create_app():
     """ function for basic configration of entire web application """
@@ -12,7 +15,10 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = '@TheNorthRemebers'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_name}'
+    # admin panel themes = ['cerulean', 'cosmo', 'cyborg', 'flatly', 'darkly']
+    app.config['FLASK_ADMIN_SWATCH'] = 'cosmo'
     db.init_app(app)
+    admin.init_app(app)
 
     # handle logging sessions
     login_manager = LoginManager()
@@ -36,6 +42,31 @@ def create_app():
     # register all blueprints
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
+
+    # build the admin panel
+    class UserModelView(ModelView):
+        can_delete = True # disable model deletion
+        can_create = True
+        column_display_pk = True
+        column_exclude_list = ('password')
+        column_searchable_list = ('name', 'email')
+        # column_filters = 'email'
+        column_descriptions = dict(
+            email='The users registered and validated email address',
+            profile_pic='The users avatar',
+            date_joined='Date when user first created an account'
+        )
+    class NoteModelView(ModelView):
+        can_edit = False #disable model editing
+        can_delete = False # disable model deletion
+        column_list = (Note.id, Note.title,Note.content,Note.date_written)
+        # column_sortable_list = ('date_written')
+        column_descriptions = dict(
+            date_written='When the note was last written/updated',
+        )
+
+    admin.add_view(UserModelView(User, db.session))
+    admin.add_view(NoteModelView(Note, db.session))
 
     # create the db
     with app.app_context():
