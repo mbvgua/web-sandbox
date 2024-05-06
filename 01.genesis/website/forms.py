@@ -37,7 +37,14 @@ class NoteForm(FlaskForm):
     class inherits from FlskForm to defines attributes of Notes adding forms
     """
     title = StringField('Select a title for your note', validators=[Length(min=2,max=100)])
-    content = TextAreaField('Give a description of the Note', validators=[Length(min=5,max=10000)])
-    add_note = SubmitField('Add note')
-    delete_note = SubmitField('Delete note')
+    content = TextAreaField('Give a description of the Note', validators=[Length(min=5,max=1000)])
     submit = SubmitField('Submit')
+
+
+class UpdateForm(FlaskForm):
+    """
+    class inherits from FlskForm to defines attributes of Notes updating forms
+    """
+    new_title = StringField('Update the title field',validators=[Length(max=100)])
+    new_content = StringField('Update the content field',validators=[Length(max=1000)])
+    update = SubmitField('Submit')

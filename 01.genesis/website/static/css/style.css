@@ -7,7 +7,7 @@
 
 /* style the navbar */
 .navbar{
-    background-color: #00458E;
+    /* background-color: #00458E; */
 }
 .navbar .logo{
     margin-left: 10%;
@@ -18,7 +18,7 @@
 
 .main-container{
     display: flex;
-    margin-bottom: 1rem;    /* preventing overlap with footer*/
+    margin-bottom: 2rem;    /* preventing overlap with footer*/
 }
 
 /* style the sidebar */

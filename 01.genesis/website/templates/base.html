@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark"> <!--bg-dark fixed-top"> -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!--bg-dark fixed-top"> -->
 	  <div class="navbar-nav mr-auto container-fluid">
 		  <a class="navbar-brand" href="#">
 			  <i class='bx bxs-edit logo' class="d-inline-block align-text-top" alt="logo"></i>
@@ -35,18 +35,6 @@
 		{% endfor %}
 	{% endwith %}
 
-	<label>
-        <i class='bx bx-moon'></i>
-        dark Theme
-        <i class='bx bx-sun' ></i>light theme
-        <i class='bx bx-log-in-circle'></i>login
-        <i class='bx bx-log-out-circle'></i>logout
-        <i class='bx bx-note'></i>note
-        <i class='bx bxs-eraser'></i>erase
-        <i class='bx bx-message-square-add'></i>new
-        <i class='bx bx-message-square-minus'></i>delete
-    </label>
-
 	<div class="main-container">
 	    {% block body%}
 
@@ -56,7 +44,7 @@
 
 
 
-	<footer class="footer">
+	<footer class="footer bg-dark">
       <p>Copyright &#169; 2024 Genesis Project. All Rights Reserved.</p>
     </footer>
 
