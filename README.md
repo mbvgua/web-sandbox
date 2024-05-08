@@ -1,7 +1,7 @@
 <!-- create the get back to top link -->
 <a name="readme-top"></a>
 
-# **Python Web Sandbox**
+# **Python Web Sandbox** [![wakatime](https://wakatime.com/badge/user/018d2724-5245-41f2-bacd-7b68daa01c31/project/018eee0e-c6b3-4dd2-a1b5-9891ccac257c.svg)](https://wakatime.com/badge/user/018d2724-5245-41f2-bacd-7b68daa01c31/project/018eee0e-c6b3-4dd2-a1b5-9891ccac257c)
  This repository will serve as a playground for experimenting with Python-based web development, featuring a variety of projects built mostly using Flask and Django frameworks.
 
 

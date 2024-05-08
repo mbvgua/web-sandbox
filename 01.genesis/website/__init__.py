@@ -56,6 +56,7 @@ def create_app():
             profile_pic='The users avatar',
             date_joined='Date when user first created an account'
         )
+
     class NoteModelView(ModelView):
         can_edit = False #disable model editing
         can_delete = False # disable model deletion
