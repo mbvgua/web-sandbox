@@ -1,0 +1,7 @@
+#ignore all the tsconfig files
+*.json
+
+#ignore all the db files in flask
+*.sqlite3
+*.sqlite
+*.db
