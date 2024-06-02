@@ -111,13 +111,13 @@ class signupUser{
 
                 if (response.ok){
                     // here is where ill add the timeout to allow display succes text
+                    responseDiv.style.display = 'flex'
+                    responseDiv.style.visibility = 'visible'
+                    responseDiv.innerHTML = '<label> Congratulations! You have successfully created an account</label>'
                     
-                    setTimeout(()=>{      /*WTF IS THIS NOT WORKING. REDIRECTING I.E. either too fast or not at all*/                
-                        responseDiv.style.display = 'flex'
-                        responseDiv.style.visibility = 'visible'
-                        responseDiv.innerHTML = '<label> You have successfully created an account</label>'
-                        window.location.href = 'index.html'
-
+                    setTimeout(()=>{    
+                        // redirect to homepage. NOT WORKING AS EXPECTED!!!
+                        window.location.href = 'index.html'    
                     },3000)
                 } else if (!response.ok){
                     /*where ill add login to ensure email is unique. how would i do that in the 
@@ -153,3 +153,5 @@ form.addEventListener('submit', (event)=>{
     event.preventDefault()
     signupUserInstance.validateInputs()
 })
+
+// export{}

@@ -25,7 +25,7 @@ type loginData = {
 
 class loginUser{
     protected construtor(){
-        this.validateInputs()
+        this.validateCredentials()
     }
 
     // define error method
@@ -95,8 +95,7 @@ class loginUser{
                         responseDiv.style.visibility = 'visible'
                         responseDiv.innerHTML = `<label> Welcome back,${validUser.username}! </label>`
                         
-                        setTimeout(()=>{                  
-
+                        setTimeout(()=>{    
                             // redirect to homepage. NOT WORKING AS EXPECTED!!!
                             window.location.href = 'index.html'    
                         },3000)

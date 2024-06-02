@@ -92,10 +92,11 @@ class signupUser {
                     });
                     if (response.ok) {
                         // here is where ill add the timeout to allow display succes text
+                        responseDiv.style.display = 'flex';
+                        responseDiv.style.visibility = 'visible';
+                        responseDiv.innerHTML = '<label> Congratulations! You have successfully created an account</label>';
                         setTimeout(() => {
-                            responseDiv.style.display = 'flex';
-                            responseDiv.style.visibility = 'visible';
-                            responseDiv.innerHTML = '<label> You have successfully created an account</label>';
+                            // redirect to homepage. NOT WORKING AS EXPECTED!!!
                             window.location.href = 'index.html';
                         }, 3000);
                     }
@@ -131,3 +132,4 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
     signupUserInstance.validateInputs();
 });
+// export{}

@@ -24,7 +24,7 @@ var userPriviledges;
 })(userPriviledges || (userPriviledges = {}));
 class loginUser {
     construtor() {
-        this.validateInputs();
+        this.validateCredentials();
     }
     // define error method
     setError(element, message) {
