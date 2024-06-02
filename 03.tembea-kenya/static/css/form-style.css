@@ -13,35 +13,45 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body,
-input {
   font-family: "Poppins", sans-serif;
 }
 
 .container {
-  position: relative;
   width: 100%;
   background-color: var(--white);
   min-height: 100vh;
-  overflow: hidden;
+}
+
+.response{
+  background-color: rgb(15, 215, 15);
+  /* background-color: rgb(231, 44, 15); */
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: .7rem 5rem;
+  flex-wrap: wrap;
+  margin: .3rem auto;
+  border-radius: 10px;
+  visibility: hidden;
+  display: none;
+}
+
+.response label{
+  color: #fff;
+  font-weight: 700;
 }
 
 form {
-  /* border: 1px solid; */
   display: flex;
+  flex-direction: column;
   margin: 1rem auto;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   padding: 1rem 5rem;
   transition: all 0.2s 0.7s;
-  overflow: hidden;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
 }
-
 
 .title {
   font-size: 2.2rem;
@@ -50,6 +60,7 @@ form {
 }
 
 .form-input {
+  border: 1px solid #655959;
   max-width: 380px;
   width: 100%;
   background-color: #f0f0f0;
@@ -59,18 +70,32 @@ form {
   display: grid;
   grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
-  position: relative;
 }
 
 /* ----using set succes and set error methods, appending this class ot display an error */
+.form-input.success{
+  border: 2px solid;
+  border-color: #09c372;
+}
+
+.form-input.error{
+  border: 2px solid;
+  border-color: #ff3860;
+}
+
 .form-input .error{
-  border: 1.5px solid red;
+  display: grid;
+  margin: .3rem 0;
+  color: #ff3860;
+  font-weight: normal;
+  font-size: small;
 }
 
 .form-input i {
   text-align: center;
   line-height: 55px;
-  color: #acacac;
+  /* color: #acacac; */
+  color: #655959;
   transition: 0.5s;
   font-size: 1.1rem;
 }
@@ -82,7 +107,8 @@ form {
   line-height: 1;
   font-weight: 600;
   font-size: 1.1rem;
-  color: #333;
+  /* color: #333; */
+  color: #655959;
 }
 
 .form-input input::placeholder {
@@ -140,26 +166,6 @@ form {
   color: var(--white);
 }
 
-.co ntainer:before {
-  content: "";
-  position: absolute;
-  height: 2000px;
-  width: 2000px;
-  top: -10%;
-  right: 48%;
-  transform: translateY(-50%);
-  /* background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%); */
-  background-image: linear-gradient(-70deg, var(--royal-purple) 0%, var(--lighter-purple) 100%);
-  transition: 1.8s ease-in-out;
-  border-radius: 50%;
-  z-index: 6;
-}
-
-.image {
-  width: 100%;
-  transition: transform 1.1s ease-in-out;
-  transition-delay: 0.4s;
-}
 
 
 .btn.transparent {
@@ -171,6 +177,21 @@ form {
   font-weight: 600;
   font-size: 0.8rem;
 }
+
+.signup-link{
+  font-size: smaller;
+  margin-top: .4rem;
+}
+.signup-link p a{
+	text-decoration: none;
+	font-weight: 700;
+  color: var(--lighter-purple);
+}
+
+.signup-link p a:hover{
+	text-decoration: underline;
+}
+
 
 
 @media (max-width: 870px) {
@@ -212,3 +233,4 @@ form {
   }
 
 }
+

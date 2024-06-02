@@ -4,25 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Tembea Africa: Login </title>
-    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="stylesheet" href="./static/css/form-style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></head>
 <body>
 
     <!-- main page container -->
     <div class="container">
 
+        <!-- give response feedback section -->
+        <section class="response">
+            
+        </section>
+    
         <!-- begin login form -->
-        <form action="#" class="signin-form">
+        <form action="#" class="signin-form" methos="POST">
             <h2 class="title">Sign in</h2>
 
             <div class="form-input">
-              <i class="fas fa-user"></i>
+              <i class="bx bx-user"></i>
               <input type="email" placeholder="Enter Email" id="login-email" autofocus required/>
+              <div class="error"></div>
             </div>
 
             <div class="form-input">
-              <i class="fas fa-lock"></i>
+              <i class="bx bx-lock"></i>
               <input type="password" placeholder="Enter Password" id="login-password" required/>
+              <div class="error"></div>
             </div>
 
             <button class="btn solid" id="login"> Login </button>
@@ -44,11 +51,17 @@
               </a>
             </div>
 
+			<div class="signup-link">
+				<p>
+					Don't have an account? <a href="./signup.html"> Sign Up </a> now
+				</p>
+			</div>
+
           </form>
         <!-- end login form -->
 
     </div>
     <!-- end main page container -->
-    <script src="./static/dist/auth.js"></script>
-</body>
+    <script src="./static/dist/login.js"></script>
+ formclass=-"data"</body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Tembea Africa: Signup </title>
-    <link rel="stylesheet" href="./static/css/style.css" />
+    <link rel="stylesheet" href="./static/css/form-style.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
@@ -12,23 +12,31 @@
     <!-- main page container -->
     <div class="container">
 
+      <!-- give user feedback section -->
+      <section class="response">
+        
+      </section>
+
           <!-- start signup form -->
           <form action="#" class="signup-form">
             <h2 class="title">Sign up</h2>
 
             <div class="form-input">
-              <i class="fas fa-envelope"></i>
+              <i class="bx bx-envelope"></i>
               <input type="email" placeholder="Enter Email" id="register-email" autofocus required />
+              <div class="error"></div>
             </div>
 
             <div class="form-input">
-              <i class="fas fa-user"></i>
+              <i class="bx bx-user"></i>
               <input type="text" placeholder="Enter Username" id="register-username" required/>
+              <div class="error"></div>
             </div>
 
             <div class="form-input">
-              <i class="fas fa-lock"></i>
+              <i class="bx bx-lock"></i>
               <input type="password" placeholder="Enter Password" id="register-password" required/>
+              <div class="error"></div>
             </div>
 
             <button class="btn solid" id="register"> Sign Up </button>
@@ -49,13 +57,19 @@
                 <i class='bx bxl-linkedin'></i>
               </a>
             </div>
-          </form>
+
+            <div class="signup-link">
+              <p>
+                Already have an account? <a href="./login.html"> Login </a> now
+              </p>
+            </div>
+                </form>
           <!-- end signup form -->
  
 
     </div>
     <!-- end of main page container -->
 
-    <script src="./static/dist/auth.js"></script>
+    <script src="./static/dist/signup.js"></script>
   </body>
 </html>
