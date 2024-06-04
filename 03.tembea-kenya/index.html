@@ -40,7 +40,7 @@
                 <i class='bx bxl-whatsapp'></i>
             </div>
 
-            <div class="contact-card">
+            <div class="contact-card undercover">
                 <label> Book Consultation </label>
                 <i class='bx bx-right-arrow-alt'></i>
             </div>
@@ -51,6 +51,7 @@
         <!-- main header menu -->
         <div class="header-main">
             <div class="logo">
+                <img src="./static/images/airplane-svgrepo-com.svg" alt="company logo">
                 <h2> Tembea Africa </h2>
             </div>
 
@@ -65,19 +66,22 @@
                     </li>
                     
                     <li>
-                        <a href="#"> Special Offers </a>
+                        <a href="#"> Hotels </a>
+                        <i class='bx bx-chevron-down'></i>
                     </li>
                     
                     <li>
                         <a href="#"> Tours </a>
+                        <i class='bx bx-chevron-down'></i>
+                    </li>
+                    
+                    <li>
+                        <a href="#"> Special Offers </a>
+                        <i class='bx bx-chevron-down'></i>
                     </li>
                     
                     <li>
                         <a href="#"> Contact Us </a>
-                    </li>
-                    
-                    <li>
-                        <a href="#"> Home </a>
                     </li>
                 </ul
                 >
@@ -86,8 +90,8 @@
             <div class="user-details">
                 <ul>
                     <li>
-                        <i class='bx bx-log-in'></i>
-                        <a href="#"> SignUp </a>
+                        <a href="#"> Account </a>
+                        <i class='bx bx-chevron-down'></i>
                     </li>
                 </ul>
             </div>
@@ -102,7 +106,7 @@
 
             <section class="hero">
                 <div class="title">
-                    <h1> Welcom to Tembea Africa Safaris</h1>
+                    <h1> tembea africa travel & tours </h1>
                 </div>
 
                 <div class="content">
@@ -119,31 +123,31 @@
         <div class="cards-section">
 
             <div class="card">
-                <div>
-                    <i class='bx bxs-phone'></i>
+                <div class="top">
+                    <i class='bx bx-phone bx-lg'></i>
                     <label> get in touch </label>
                 </div>
-                <div>
+                <div class="bottom">
                     <p>We are reliable immigration consultants to handle your immigration case.</p>
                 </div>
             </div>
 
             <div class="card">
-                <div>
-                    <i class='bx bx-wallet'></i>
-                    <label> pay for vacation </label>
+                <div class="top">
+                    <i class='bx bx-wallet bx-lg'></i>
+                    <label> book vacation </label>
                 </div>
-                <div>
+                <div class="bottom">
                     <p>To process your visa application with our experienced registered agents.</p>
                 </div>
             </div>
 
             <div class="card">
-                <div>
-                    <i class='bx bx-trip'></i>
+                <div class="top">
+                    <i class='bx bx-trip bx-lg'></i>
                     <label> leave the rest to us </label>
                 </div>
-                <div>
+                <div class="bottom">
                     <p>We are reliable immigration consultants to handle your immigration case.</p>
                 </div>
             </div>
@@ -156,7 +160,7 @@
 
             <div class="intro-left">
                 <h3> who we are </h3>
-                <h2> Tembea africa travel and tours </h2>
+                <h2> Tembea africa travel & tours </h2>
             </div>
 
             <div class="intro-right">
@@ -180,12 +184,11 @@
         <!-- begin choosing destination div -->
         <div class="choose-destination">
             <div class="top">
-                <p> choose destination </p>
+                <h3> choose destination </h3>
                 <h2> popular destinations  </h2>
-                <p> Explore the stunning landscapes and diverse wildlife of Kenya,
-                    from national reserve safaris to traditional Swahili culture.
-                    Immerse yourself in the unique experiences this destination has
-                    to offer.
+                <p> Leading tour and travels booking website. Over 3,000 packages
+                    worldwide. Book travel packages and enjoy your holidays with
+                    distinctive experience
                 </p>
             </div>
 
@@ -193,12 +196,14 @@
 
                 <!-- begin destination card 1 -->
                 <div class="destination-card">
-                    <img src="" alt="destination pic">
-                    <p class="destination-title"> Hala Madrid </p>
-                    <p class="destination-price"> $ 100 </p>
+                    <div class="img">
+                        <img src="" alt="destination pic">
+                        <p class="price"> $ 100 </p>
+                    </div>
+                    <p class="title"> Hala Madrid </p>
+                    <p class="description"> In the brightest day in the darkets night </p>
                 </div>
                 <!-- end destination card 1 -->
-
                 
             </div>
             <!-- end bottom cards section -->
@@ -210,7 +215,7 @@
         <!-- begin choosing hotel div -->
         <div class="choose-hotel">
             <div class="top">
-                <p> choose hotel </p>
+                <h3> choose hotel </h3>
                 <h2> recommended hotels  </h2>
                 <p> Leading tour and travels booking website. Over 3,000 packages
                     worldwide. Book travel packages and enjoy your holidays with
@@ -220,17 +225,25 @@
 
             <div class="bottom">
 
+ 
                 <!-- begin hotel card 1 -->
                 <div class="hotel-card">
-                    <img src="" alt="hotel pic">
-                    <p class="hotel-title"> Hala Madrid </p>
-                    <p class="hotel-price"> $ 100 </p>
-                    <p>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                    </p>
+                    <div class="img">
+                        <img src="" alt="hotel pic">
+                    </div>
+                    <div class="content">
+
+                        <p class="title"> Hala Madrid </p>
+                        <p class="desc"> Go placidly amid the noise and haste and remember what peace there may be in silence</p>
+                        <p class="price"> $ 100 </p>
+                        <p class="info"> see full itenerary <i class='bx bx-right-arrow-alt'></i></i></p>
+                        <p>
+                            <i class='bx bx-star'></i>
+                            <i class='bx bx-star'></i>
+                            <i class='bx bx-star'></i>
+                            <i class='bx bx-star'></i>
+                        </p>
+                    </div>
                 </div>
                 <!-- end hotel card 1 -->
 
@@ -243,10 +256,10 @@
 
 
         <!-- begin choosing outing div -->
-        <div class="themed-outing">
+        <div class="testimonials">
             <div class="top">
-                <p> choose theme </p>
-                <h2> themed outings & discounts  </h2>
+                <h3> what others have to say </h3>
+                <h2> testimonials  </h2>
                 <p> Bonfire Adventures Is an award-winning team that offers round
                     the clock support during your trip and 100% financial protection
                     so you know you are in safe hands. With us you can dream, book and
@@ -257,10 +270,21 @@
             <div class="bottom">
 
                 <!-- begin theme card 1 -->
-                <div class="theme-card">
-                    <img src="" alt="theme pic">
-                    <p class="theme-title"> Hala Madrid </p>
-                    <p class="theme-price"> $ 100 </p>
+                <div class="card">
+                    <section>
+
+                        <img src="" alt="user pic">
+                        <p class="title"> Hala Madrid </p>
+                    </section>
+                    <section>
+                        <p class="desc"> Go placidly amid th enoise and haste, but remember what peace ther may be in silence </p>
+                        <p>
+                            <i class='bx bx-star'></i>
+                            <i class='bx bx-star'></i>
+                            <i class='bx bx-star'></i>
+                            <i class='bx bx-star'></i>
+                        </p>
+                    </section>
                 </div>
                 <!-- end theme card 1 -->
 
@@ -276,16 +300,16 @@
         <div class="footer">
             <div class="top">
                 <!-- far left section -->
-                <div class="section-1">
+                <div class="section section-1">
                     <div class="logo">
-
+                        <img src="./static/images/airplane-svgrepo-com.svg" alt="company logo">
+                        <label>tembea africa travel & tours<label>
                     </div>
-                    <p>
+                    <p class="desc">
                         Visa Consulting & Coaching Training provide with a great place
-                        to Service, whether you are there to burn off some calories or
-                        are
+                        to Service.
                     </p>
-                    <div>
+                    <div class="socials">
                         <i class='bx bxl-facebook'></i>
                         <i class='bx bxl-twitter'></i>
                         <i class='bx bxl-google'></i>
@@ -295,28 +319,40 @@
                 </div>
 
                 <!-- left section -->
-                <div class="section-2">
+                <div class="section section-2">
                     <h2> Information </h2>
                     <div>
                         <ul>
                             <li>
+                                <i class='bx bx-chevron-right'></i>
                                 <a href="#"> Home </a>
                             </li>
                             <li>
+                                <i class='bx bx-chevron-right'></i>
                                 <a href="#"> About Us </a>
                             </li>
                             <li>
+                                <i class='bx bx-chevron-right'></i>
                                 <a href="#"> Contact us </a>
                             </li>
                             <li>
+                                <i class='bx bx-chevron-right'></i>
+                                <a href="#"> Popular Destinations </a>
+                            </li>
+                            <li>
+                                <i class='bx bx-chevron-right'></i>
+                                <a href="#"> Recommended Hotels </a>
+                            </li>
+                            <li>
+                                <i class='bx bx-chevron-right'></i>
                                 <a href="#"> Testimonials </a>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- right section -->
-                <div class="section-3">
+                <!-- right section
+                <div class="section section-3">
                     <h2 class="title"> Useful Links </h2>
                     <div>
                         <ul>
@@ -346,10 +382,10 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- far right section -->
-                <div class="section-4">
+                <div class="section section-3">
                     <h2 class="title"> Get in Touch  </h2>
                     <div>
                         <ul>
@@ -373,6 +409,8 @@
                     </div>
                 </div>
             </div>
+
+            
             <div class="bottom">
                 <div>
                     <i class='bx bx-copyright'></i>
@@ -381,7 +419,7 @@
                 </div>
 
                 <div> 
-                    <label>
+                    <label class="undercover">
                         Book Appointement Now
                     </label>
 
@@ -401,8 +439,8 @@
     <i class='bx bx-world'></i>
     
     <i class='bx bxs-copyright'></i>
-    <i class='bx bx-chevron-down'></i>
-    <i class='bx bx-chevron-up'></i>
+    
+
     <i class='bx bx-right-arrow-alt'></i>
     <i class='bx bxs-chevron-right'></i>
     <i class='bx bxs-chevron-left'></i>
