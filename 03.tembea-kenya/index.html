@@ -49,54 +49,76 @@
         <!-- end contact info -->
 
         <!-- main header menu -->
-        <div class="header-main">
-            <div class="logo">
-                <img src="./static/images/airplane-svgrepo-com.svg" alt="company logo">
-                <h2> Tembea Africa </h2>
-            </div>
-
-            <div class="main-menu">
-                <ul>
-                    <li>
-                        <a href="#"> Home </a>
-                    </li>
-                    
-                    <li>
-                        <a href="#"> About Us </a>
-                    </li>
-                    
-                    <li>
-                        <a href="#"> Hotels </a>
-                        <i class='bx bx-chevron-down'></i>
-                    </li>
-                    
-                    <li>
-                        <a href="#"> Tours </a>
-                        <i class='bx bx-chevron-down'></i>
-                    </li>
-                    
-                    <li>
-                        <a href="#"> Special Offers </a>
-                        <i class='bx bx-chevron-down'></i>
-                    </li>
-                    
-                    <li>
-                        <a href="#"> Contact Us </a>
-                    </li>
-                </ul
-                >
-            </div>
-
-            <div class="user-details">
-                <ul>
-                    <li>
-                        <a href="#"> Account </a>
-                        <i class='bx bx-chevron-down'></i>
-                    </li>
-                </ul>
-            </div>
+       <div class="header-main">
+        <div class="logo">
+            <img src="./static/images/airplane-svgrepo-com.svg" alt="company logo">
+            <h2> Tembea Africa </h2>
         </div>
-        <!-- end main-menu header menu -->
+
+        <div class="main-menu">
+            <ul>
+              <li class="has-dropdown">
+                  <a href="#" class="item">Home</a>
+                  <section class="dropdown-items">
+                    <a href="#">Home Tena</a>
+                    <a href="#">Home Again</a>
+                    <a href="#">Home Still</a>
+                  </section>
+                </li>
+                        
+                <li>
+                    <a href="#" class="item"> About Us </a>
+                </li>
+                
+                <li class="has-dropdown">
+                  <a href="#" class="item">Hotels</a>
+                  <i class='bx bx-chevron-down'></i>
+                  <section class="dropdown-items">
+                    <a href="#">Hotel 1</a>
+                    <a href="#">Hotel 2</a>
+                    <a href="#">Hotel 3</a>
+                  </section>
+                </li>
+                        
+                <li class="has-dropdown">
+                  <a href="#" class="item">Tours</a>
+                  <i class='bx bx-chevron-down'></i>
+                  <section class="dropdown-items">
+                    <a href="#">Tour 1</a>
+                    <a href="#">Tour 2</a>
+                    <a href="#">Tour 3</a>
+                  </section>
+                </li>
+                        
+                <li>
+                    <a href="#" class="item"> Special Offers </a>
+                    <i class='bx bx-chevron-down'></i>
+                </li>
+                
+                <li>
+                    <a href="#" class="item"> Contact Us </a>
+                </li>
+            </ul
+            >
+        </div>
+
+        <div class="user-details">
+            <ul>
+              <li class="has-dropdown">
+                  <a href="#" class="item">Account</a>
+                  <i class='bx bx-chevron-down'></i>
+                  <section class="dropdown-items">
+                      <a href="#"><i class='bx bx-user-circle'></i></i>Profile</a>
+                    <a href="./login.html"><i class='bx bx-log-in-circle'></i>Login</a>
+                    <a href="#"><i class='bx bx-cog'></i>Settings</a>
+                    <a href="./signup.html"><i class='bx bx-log-out-circle'></i>Logout</a>
+                  </section>
+                </li>
+                    </ul>
+        </div>
+    </div>
+    <!-- end main-menu header menu -->
+
 
         </div>
         <!-- end header div -->
@@ -223,11 +245,11 @@
                 </p>
             </div>
 
-            <div class="bottom">
+            <div class="bottom hotel-div">
 
  
                 <!-- begin hotel card 1 -->
-                <div class="hotel-card">
+                <!-- <div class="hotel-card">
                     <div class="img">
                         <img src="" alt="hotel pic">
                     </div>
@@ -244,7 +266,7 @@
                             <i class='bx bx-star'></i>
                         </p>
                     </div>
-                </div>
+                </div> -->
                 <!-- end hotel card 1 -->
 
 
@@ -465,5 +487,6 @@
     <i class='bx bxl-whatsapp'></i>
     <i class='bx bxs-plane-take-off'></i>
     <i class='bx bx-swim'></i>
+    <script src="./static/dist/script.js"></script>
 </body>
 </html>

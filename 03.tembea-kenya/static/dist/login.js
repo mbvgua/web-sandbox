@@ -1,4 +1,5 @@
 "use strict";
+// import { usersUrl} from "./script.js"
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,13 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-console.log('hello world');
+// console.log(usersUrl)
 const email = document.querySelector('#login-email');
 const password = document.querySelector('#login-password');
 const responseDiv = document.querySelector('.response');
 const form = document.querySelector('form');
 // define the db url
 const usersUrl = 'http://localhost:3000/users';
+// userOperationsInstance.fetchUsers()
 // define enum for user roles and priviledges
 var userPriviledges;
 (function (userPriviledges) {
@@ -77,7 +79,15 @@ class loginUser {
                         // check if user exists in db
                         // remove type any here
                         const validUser = users.find((user) => user.email === emailVal);
-                        if (validUser.password === passwordVal) {
+                        if (validUser.email == 'admin@gmail.com' || validUser.priviledges == 'admin') {
+                            responseDiv.style.display = 'flex';
+                            responseDiv.style.visibility = 'visible';
+                            responseDiv.innerHTML = `<label> Welcome ${validUser.username}! </label>`;
+                            setTimeout(() => {
+                                window.location.href = 'admin.html';
+                            }, 3000);
+                        }
+                        else if (validUser.password === passwordVal) {
                             responseDiv.style.display = 'flex';
                             responseDiv.style.visibility = 'visible';
                             responseDiv.innerHTML = `<label> Welcome back,${validUser.username}! </label>`;
@@ -120,3 +130,4 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
     loginUserInstance.validateCredentials();
 });
+// export {}

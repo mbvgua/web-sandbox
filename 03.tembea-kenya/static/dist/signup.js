@@ -23,7 +23,6 @@ var userPriviledges;
 (function (userPriviledges) {
     userPriviledges["Admin"] = "admin";
     userPriviledges["Client"] = "client";
-    userPriviledges["Viewer"] = "viewer";
 })(userPriviledges || (userPriviledges = {}));
 /*define the sigup class
 look for a way to export reusable code chunks into auth.js then import into

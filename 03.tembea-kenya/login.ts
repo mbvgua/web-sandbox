@@ -1,4 +1,6 @@
-console.log('hello world')
+// import { usersUrl} from "./script.js"
+
+// console.log(usersUrl)
 
 const email = document.querySelector('#login-email')! as HTMLInputElement
 const password = document.querySelector('#login-password')! as HTMLInputElement
@@ -7,6 +9,8 @@ const form = document.querySelector('form')! as HTMLFormElement
 
 // define the db url
 const usersUrl:string = 'http://localhost:3000/users' 
+
+// userOperationsInstance.fetchUsers()
 
 // define enum for user roles and priviledges
 enum userPriviledges {
@@ -17,7 +21,6 @@ enum userPriviledges {
 
 // define type for user input data
 type loginData = {
-    // id: number | string
     email: string
     password: string
     priviledges?: string
@@ -83,14 +86,22 @@ class loginUser{
 
             try{
                 const response = await fetch(usersUrl)
-                const users: {id:string, username:string, password:string, email:string}[] = await response.json()
+                const users: {id:string, username:string, password:string, email:string, privileges:string}[] = await response.json()
                 // console.log(users)
                 if (users.length > 0){
                     // check if user exists in db
                     // remove type any here
                     const validUser:any = users.find((user)=> user.email === emailVal)
 
-                    if (validUser.password === passwordVal){
+                    if(validUser.email == 'admin@gmail.com' || validUser.priviledges == 'admin'){
+                        responseDiv.style.display = 'flex'
+                        responseDiv.style.visibility = 'visible'
+                        responseDiv.innerHTML = `<label> Welcome ${validUser.username}! </label>`
+                        
+                        setTimeout(()=>{    
+                            window.location.href = 'admin.html'    
+                        },3000)
+                    } else if (validUser.password === passwordVal){
                         responseDiv.style.display = 'flex'
                         responseDiv.style.visibility = 'visible'
                         responseDiv.innerHTML = `<label> Welcome back,${validUser.username}! </label>`
@@ -137,3 +148,5 @@ form.addEventListener('submit', (event)=>{
     event.preventDefault()
     loginUserInstance.validateCredentials()
 })
+
+// export {}

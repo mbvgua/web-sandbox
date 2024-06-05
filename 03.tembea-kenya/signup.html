@@ -21,24 +21,24 @@
           <form action="#" class="signup-form">
             <h2 class="title">Sign up</h2>
 
-            <div class="form-input">
-              <i class="bx bx-envelope"></i>
-              <input type="email" placeholder="Enter Email" id="register-email" autofocus required />
+            <div class="form-group">
+                      <label> Email: </label> <br/>
+                      <input type="email" class="form-control" id="register-email" placeholder=" Enter Email">
               <div class="error"></div>
             </div>
 
-            <div class="form-input">
-              <i class="bx bx-user"></i>
-              <input type="text" placeholder="Enter Username" id="register-username" required/>
+            <div class="form-group">
+              <label> Username: </label> <br/>
+              <input type="text" class="form-control" id="register-username" placeholder=" Enter Username">
+              <div class="error"></div>
+            </div>      
+      
+            <div class="form-group">
+                      <label> Password: </label> <br/>
+                      <input type="password" class="form-control" id="register-password" placeholder=" Enter Password">
               <div class="error"></div>
             </div>
-
-            <div class="form-input">
-              <i class="bx bx-lock"></i>
-              <input type="password" placeholder="Enter Password" id="register-password" required/>
-              <div class="error"></div>
-            </div>
-
+      
             <button class="btn solid" id="register"> Sign Up </button>
 
             <p class="social-text">Or Sign up with social platforms</p>

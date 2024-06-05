@@ -16,12 +16,10 @@ const usersUrl:string = 'http://localhost:3000/users'
 enum userPriviledges {
     Admin = 'admin',
     Client = 'client',
-    Viewer = 'viewer',
 }
 
 // define type for user input data
 type userData = {
-    // id: number | string
     email: string
     username: string
     password: string
@@ -119,6 +117,7 @@ class signupUser{
                         // redirect to homepage. NOT WORKING AS EXPECTED!!!
                         window.location.href = 'index.html'    
                     },3000)
+
                 } else if (!response.ok){
                     /*where ill add login to ensure email is unique. how would i do that in the 
                     backend side of things with pyhton and still achieve integrartion in ts?*/

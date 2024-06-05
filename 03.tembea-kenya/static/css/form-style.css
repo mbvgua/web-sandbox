@@ -59,36 +59,51 @@ form {
   margin-bottom: 10px;
 }
 
-.form-input {
-  border: 1px solid #655959;
-  max-width: 380px;
-  width: 100%;
-  background-color: #f0f0f0;
-  margin: 10px 0;
-  height: 55px;
-  border-radius: 55px;
-  display: grid;
-  grid-template-columns: 15% 85%;
-  padding: 0 0.4rem;
+.form-group{
+  font-size: 25px;
+  font-weight: bold;
+  width: 400px;
+  max-width: 45%;
+  display: flex;
+  flex-direction: column;
+  /* line-height: 2rem; */
+  gap: .2rem;
 }
 
-/* ----using set succes and set error methods, appending this class ot display an error */
-.form-input.success{
-  border: 2px solid;
+.form-group label{
+  font-size: medium;
+}
+
+.form-group input{
+  height: 2.5rem;
+}
+
+.form-group.success .form-control{
   border-color: #09c372;
 }
 
-.form-input.error{
-  border: 2px solid;
+.form-group.error .form-control{
   border-color: #ff3860;
 }
 
-.form-input .error{
-  display: grid;
-  margin: .3rem 0;
+.form-group .error{
   color: #ff3860;
   font-weight: normal;
   font-size: small;
+}
+
+.form-group .form-control:focus{
+  /* helps prevent overlap with error and succes outline */
+  outline: 0;
+}
+.form-control{
+  border: 2px solid #665665;
+  padding: .4rem;
+  font-size: large;
+border-radius: 17px;
+height: 40px;
+font-weight: 500;
+  width: 100%;
 }
 
 .form-input i {
