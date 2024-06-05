@@ -14,10 +14,13 @@ const hotelsDiv = document.querySelector('#hotels-div')! as HTMLElement
 const toursDiv = document.querySelector('#tours-div')! as HTMLElement
 const offersDiv = document.querySelector('#offers-div')! as HTMLElement
 const bookingsDiv = document.querySelector('#bookings-div')! as HTMLElement
+const adminResponseDiv = document.querySelector('.response')! as HTMLDivElement
 
 // html variables for appending data into tale
 const addUsersDiv = document.querySelector('.append-users')! as HTMLElement
 const addHotelsDiv = document.querySelector('.append-hotels')! as HTMLElement
+// const deleteUserBtn = document.querySelector('.delete-user')! as HTMLElement
+// const updateUserBtn = document.querySelector('.update-user')! as HTMLElement
 
 // import the db url
 const hotelsUrl = 'http://localhost:3000/hotels'
@@ -91,16 +94,15 @@ class displayUi{
 class usersAdmin{
     // private users: usersData[]
 
-    // constructor(users: usersData[]){
     constructor(){
-        // this.users = users
-        this.addUser()
+        this.showUser()
     }
 
-    async addUser():Promise<void>{
+    async showUser():Promise<void>{
         // fetch users from db
         const response=  await fetch (usersUrl)
         let users = await response.json()
+        localStorage.setItem('users', JSON.stringify(users))
         // console.log(users)
         
         // add users to the existing table
@@ -114,8 +116,7 @@ class usersAdmin{
                 <td>${user.password}</td>
                 <td>${user.priviledges}</td>
                 <td class="actions">
-                    <button> Update </button>
-                    <button> Delete </button>
+                    <button id="delete-existing-user"> Delete </button>
               </td>
                 </tr>`
         })
@@ -125,19 +126,66 @@ class usersAdmin{
         return users
     }
 
-    async deleteUser(){
-        let users = this.addUser()
+    async addUser(){
+        const emailInput = document.getElementById('add-email')! as HTMLInputElement
+        const usernameInput = document.getElementById('add-username')! as HTMLInputElement
+        const passwordInput = document.getElementById('add-password')! as HTMLInputElement
+        const priviledgesInput = document.getElementById('add-priviledges')! as HTMLInputElement
 
-        deleteUserBtn.addEventListener('click', (event)=>{
+        const addUserBtn = document.getElementById('add-new-user')! as HTMLButtonElement
+
+        addUserBtn.addEventListener('click', (event)=>{
             event.preventDefault()
-            console.log('radaaa.. lunj bado')
+
+            let email:string = emailInput.value.trim()
+            let username:string = usernameInput.value.trim()
+            let password:string = passwordInput.value.trim()
+            let priviledges:string = priviledgesInput.value.trim()
+
+            const newUser = {
+                email,
+                username,
+                password,
+                priviledges
+            }
+
+            try{
+                const response = fetch(usersUrl, {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newUser)
+                });
+
+                if (response.ok) {
+                    alert('new user added succesfully')
+                } 
+
+            } catch(error){
+                console.log(error)
+            }
         })
 
-        // fetch users from db
-        // allow for crud operations
+
+
+
+    }
+
+
+    async deleteUser(id:string){
+        let users: string | null = JSON.parse(localStorage.getItem('users'))
+        // console.log(users)
+
+        const deleteBtn = document.querySelector('#delete-existing-user')! as HTMLButtonElement
+        
+        deleteBtn.addEventListener('click', (event)=>{
+            event.preventDefault()
+            localStorage.removeItem(id)
+        })
     }
     
     async updateUser(){
+        console.log('radaaa.. lunj bado')
+
         // fetch users from db
         // allow for crud operations
     }
@@ -163,12 +211,10 @@ class hotelsAdmin{
                 <tr>
                 <td>${hotel.id}</td>
                 <td>${hotel.name}</td>
-                <td>${hotel.photo_1}</td>
                 <td>${hotel.location}</td>
                 <td>${hotel.star_rating}</td>
                 <td>${hotel.price}</td>
                 <td class="actions">
-                    <button> Update </button>
                     <button> Delete </button>
               </td>
                 </tr>`
@@ -213,7 +259,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     // invoke them
     displayUiInstance
+
     usersAdminInstance
+    usersAdminInstance.addUser() 
+    usersAdminInstance.deleteUser() 
+        
+ 
+
     hotelsAdminInstance
 
     // perform various operations

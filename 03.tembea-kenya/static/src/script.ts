@@ -59,7 +59,7 @@ class hotelOperations{
                     <p class="title"> ${name} </p>
                     <p class="desc"> Go placidly amid the noise and haste and remember what peace there may be in silence</p>
                     <p class="price"> $ ${rates} </p>
-                    <p class="info"> see full itenerary <i class='bx bx-right-arrow-alt'></i></i></p>
+                    <p class="info" id="book-hotel"> see full itenerary <i class='bx bx-right-arrow-alt'></i></i></p>
                     <p>
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -109,7 +109,7 @@ class tourOperations{
                         </div>
                             <p class="title"> ${tour.name} </p>
                             <p class="price"> $ ${tour.price} </p>
-                        <button> book destination</button>
+                        <button id="book-destination"> book destination</button>
                     </div>`
         })
 
@@ -124,4 +124,4 @@ const toursInstance = new tourOperations()
 
 // invoke the classes
 hotelsInstance
-// toursInstance
+toursInstance
