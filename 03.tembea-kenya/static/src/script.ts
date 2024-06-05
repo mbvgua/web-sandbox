@@ -1,13 +1,16 @@
 console.log('hello world')
 
 // get all the major urls
+// import {hotelsUrl,usersUrl,bookingsUrl,toursUrl} from './admin.ts'
 const hotelsUrl = 'http://localhost:3000/hotels'
 const toursUrl = 'http://localhost:3000/tours'
 const usersUrl = 'http://localhost:3000/users'
 const bookingsUrl = 'http://localhost:3000/bookings'
 
+
 // get the webpage div elements 
 const hotelDiv = document.querySelector('.hotel-div')! as HTMLDivElement
+const tourDiv = document.querySelector('.tour-div')! as HTMLDivElement
 
 // let hotels:[] = []
 // console.log(hotels)
@@ -41,10 +44,10 @@ class hotelOperations{
         hotels.slice(0,10).forEach(hotel =>{
 
             // destructure the hotel array
-            let id = hotel.hotel_id
-            let name = hotel.hotel_name
+            let id = hotel.id
+            let name = hotel.name
             let photo = hotel.photo1
-            let rates = hotel.rates_from
+            let rates = hotel.price
 
 
             html += `<div class="hotel-card" pid="${id}">
@@ -73,6 +76,52 @@ class hotelOperations{
 
 }
 
+class tourOperations{
+    public constructor(){
+        this.getTours()
+        .then(()=>{
+            this.updateToursUI()
+        })
+    }
+    
+    // let hotels:{} = {}
+    async getTours():Promise<T>{
+
+        try{
+            const response = await fetch(toursUrl)
+            const tours = await response.json() as []
+            
+        return tours 
+        } catch(error){
+            console.error(`the error is ${error}`)
+        }
+    }
+
+    async updateToursUI(){
+        let tours = await this.getTours()
+
+        let html = ''
+        tours.forEach(tour =>{
+
+            html += `<div class="destination-card" id="${tour.id}">
+                        <div class="img">
+                            <img src="${tour.photo1}" alt="destination pic">
+                        </div>
+                            <p class="title"> ${tour.name} </p>
+                            <p class="price"> $ ${tour.price} </p>
+                        <button> book destination</button>
+                    </div>`
+        })
+
+        tourDiv.innerHTML = html
+
+    }
+}
+
 
 const hotelsInstance = new hotelOperations()
+const toursInstance = new tourOperations()
+
+// invoke the classes
 hotelsInstance
+// toursInstance

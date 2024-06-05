@@ -10,12 +10,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 console.log('hello world');
 // get all the major urls
+// import {hotelsUrl,usersUrl,bookingsUrl,toursUrl} from './admin.ts'
 const hotelsUrl = 'http://localhost:3000/hotels';
 const toursUrl = 'http://localhost:3000/tours';
 const usersUrl = 'http://localhost:3000/users';
 const bookingsUrl = 'http://localhost:3000/bookings';
 // get the webpage div elements 
 const hotelDiv = document.querySelector('.hotel-div');
+const tourDiv = document.querySelector('.tour-div');
 // let hotels:[] = []
 // console.log(hotels)
 // class to fetch data from the 
@@ -45,10 +47,10 @@ class hotelOperations {
             let html = '';
             hotels.slice(0, 10).forEach(hotel => {
                 // destructure the hotel array
-                let id = hotel.hotel_id;
-                let name = hotel.hotel_name;
+                let id = hotel.id;
+                let name = hotel.name;
                 let photo = hotel.photo1;
-                let rates = hotel.rates_from;
+                let rates = hotel.price;
                 html += `<div class="hotel-card" pid="${id}">
                 <div class="img">
                     <img src="${photo}" alt="hotel pic">
@@ -72,5 +74,46 @@ class hotelOperations {
         });
     }
 }
+class tourOperations {
+    constructor() {
+        this.getTours()
+            .then(() => {
+            this.updateToursUI();
+        });
+    }
+    // let hotels:{} = {}
+    getTours() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const response = yield fetch(toursUrl);
+                const tours = yield response.json();
+                return tours;
+            }
+            catch (error) {
+                console.error(`the error is ${error}`);
+            }
+        });
+    }
+    updateToursUI() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let tours = yield this.getTours();
+            let html = '';
+            tours.forEach(tour => {
+                html += `<div class="destination-card" id="${tour.id}">
+                        <div class="img">
+                            <img src="${tour.photo1}" alt="destination pic">
+                        </div>
+                            <p class="title"> ${tour.name} </p>
+                            <p class="price"> $ ${tour.price} </p>
+                        <button> book destination</button>
+                    </div>`;
+            });
+            tourDiv.innerHTML = html;
+        });
+    }
+}
 const hotelsInstance = new hotelOperations();
+const toursInstance = new tourOperations();
+// invoke the classes
 hotelsInstance;
+// toursInstance
