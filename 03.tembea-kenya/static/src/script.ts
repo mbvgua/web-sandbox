@@ -41,7 +41,7 @@ class hotelOperations{
         let hotels = await this.getHotels()
 
         let html = ''
-        hotels.slice(0,10).forEach(hotel =>{
+        hotels.forEach(hotel =>{
 
             // destructure the hotel array
             let id = hotel.id
@@ -73,6 +73,19 @@ class hotelOperations{
         hotelDiv.innerHTML = html
 
     }
+
+    async hotelsDropdown(){
+        let hotels = await this.getHotels()
+        const hotelsDropdown = document.querySelector('.hotel-dropdown')! as HTMLElement
+        let html = ''
+
+        hotels.forEach((hotel):void=>{
+            html += `<a href="#">${hotel.name}</a>`
+        })
+
+        hotelsDropdown.innerHTML = html
+    }
+
 
 }
 
@@ -116,6 +129,18 @@ class tourOperations{
         tourDiv.innerHTML = html
 
     }
+
+    async toursDropdown(){
+        let tours = await this.getTours()
+        const toursDropdown = document.querySelector('.tour-dropdown')! as HTMLElement
+        let html = ''
+
+        tours.forEach((tour):void=>{
+            html += `<a href="#">${tour.name}</a>`
+        })
+
+        toursDropdown.innerHTML = html
+    }
 }
 
 
@@ -124,4 +149,8 @@ const toursInstance = new tourOperations()
 
 // invoke the classes
 hotelsInstance
+hotelsInstance.hotelsDropdown()
+
+
 toursInstance
+toursInstance.toursDropdown()

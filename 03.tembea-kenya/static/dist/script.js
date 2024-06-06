@@ -45,7 +45,7 @@ class hotelOperations {
         return __awaiter(this, void 0, void 0, function* () {
             let hotels = yield this.getHotels();
             let html = '';
-            hotels.slice(0, 10).forEach(hotel => {
+            hotels.forEach(hotel => {
                 // destructure the hotel array
                 let id = hotel.id;
                 let name = hotel.name;
@@ -71,6 +71,17 @@ class hotelOperations {
             </div>`;
             });
             hotelDiv.innerHTML = html;
+        });
+    }
+    hotelsDropdown() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let hotels = yield this.getHotels();
+            const hotelsDropdown = document.querySelector('.hotel-dropdown');
+            let html = '';
+            hotels.forEach((hotel) => {
+                html += `<a href="#">${hotel.name}</a>`;
+            });
+            hotelsDropdown.innerHTML = html;
         });
     }
 }
@@ -111,9 +122,22 @@ class tourOperations {
             tourDiv.innerHTML = html;
         });
     }
+    toursDropdown() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let tours = yield this.getTours();
+            const toursDropdown = document.querySelector('.tour-dropdown');
+            let html = '';
+            tours.forEach((tour) => {
+                html += `<a href="#">${tour.name}</a>`;
+            });
+            toursDropdown.innerHTML = html;
+        });
+    }
 }
 const hotelsInstance = new hotelOperations();
 const toursInstance = new tourOperations();
 // invoke the classes
 hotelsInstance;
+hotelsInstance.hotelsDropdown();
 toursInstance;
+toursInstance.toursDropdown();

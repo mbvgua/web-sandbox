@@ -10,12 +10,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 console.log('hello world');
 // get the various form variables
+const home = document.querySelector('#home');
 const users = document.querySelector('#users');
 const hotels = document.querySelector('#hotels');
 const tours = document.querySelector('#tours');
 const offers = document.querySelector('#offers');
 const bookings = document.querySelector('#bookings');
 const mainDiv = document.querySelector('.main-content');
+const homeDiv = document.querySelector('#home-div');
 const usersDiv = document.querySelector('#users-div');
 const hotelsDiv = document.querySelector('#hotels-div');
 const toursDiv = document.querySelector('#tours-div');
@@ -25,6 +27,7 @@ const adminResponseDiv = document.querySelector('.response');
 // html variables for appending data into tale
 const addUsersDiv = document.querySelector('.append-users');
 const addHotelsDiv = document.querySelector('.append-hotels');
+const addToursDiv = document.querySelector('.append-tours');
 // const deleteUserBtn = document.querySelector('.delete-user')! as HTMLElement
 // const updateUserBtn = document.querySelector('.update-user')! as HTMLElement
 // import the db url
@@ -46,10 +49,22 @@ class displayUi {
     displayDivs() {
         return __awaiter(this, void 0, void 0, function* () {
             // events listeners for different divs to display respective info
+            home.addEventListener('mousedown', () => {
+                toursDiv.style.display = 'none';
+                hotelsDiv.style.display = 'none';
+                bookingsDiv.style.display = 'none';
+                usersDiv.style.display = 'none';
+            });
+            home.addEventListener('mouseup', () => {
+                mainDiv.style.display = 'flex';
+                homeDiv.style.display = 'block';
+                homeDiv.style.visibility = 'visible';
+            });
             users.addEventListener('mousedown', () => {
                 toursDiv.style.display = 'none';
                 hotelsDiv.style.display = 'none';
                 bookingsDiv.style.display = 'none';
+                homeDiv.style.display = 'none';
             });
             users.addEventListener('mouseup', () => {
                 mainDiv.style.display = 'flex';
@@ -60,6 +75,7 @@ class displayUi {
                 usersDiv.style.display = 'none';
                 toursDiv.style.display = 'none';
                 bookingsDiv.style.display = 'none';
+                homeDiv.style.display = 'none';
             });
             hotels.addEventListener('mouseup', () => {
                 mainDiv.style.display = 'flex';
@@ -70,6 +86,7 @@ class displayUi {
                 usersDiv.style.display = 'none';
                 hotelsDiv.style.display = 'none';
                 bookingsDiv.style.display = 'none';
+                homeDiv.style.display = 'none';
             });
             tours.addEventListener('mouseup', () => {
                 mainDiv.style.display = 'flex';
@@ -80,6 +97,7 @@ class displayUi {
                 usersDiv.style.display = 'none';
                 toursDiv.style.display = 'none';
                 hotelsDiv.style.display = 'none';
+                homeDiv.style.display = 'none';
             });
             bookings.addEventListener('mouseup', () => {
                 mainDiv.style.display = 'flex';
@@ -112,7 +130,7 @@ class usersAdmin {
                 <td>${user.password}</td>
                 <td>${user.priviledges}</td>
                 <td class="actions">
-                    <button id="delete-existing-user"> Delete </button>
+                    <button onclick="this.deleteUser()"> Delete </button>
               </td>
                 </tr>`;
             });
@@ -160,30 +178,24 @@ class usersAdmin {
         return __awaiter(this, void 0, void 0, function* () {
             let users = JSON.parse(localStorage.getItem('users'));
             // console.log(users)
-            const deleteBtn = document.querySelector('#delete-existing-user');
-            deleteBtn.addEventListener('click', (event) => {
-                event.preventDefault();
-                localStorage.removeItem(id);
-            });
-        });
-    }
-    updateUser() {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log('radaaa.. lunj bado');
-            // fetch users from db
-            // allow for crud operations
+            localStorage.removeItem(id);
+            // const deleteBtn = document.querySelector('#delete-existing-user')! as HTMLButtonElement
+            // deleteBtn.addEventListener('click', (event)=>{
+            //     event.preventDefault()
+            // })
         });
     }
 }
 class hotelsAdmin {
     constructor() {
-        this.addHotel();
+        this.showHotel();
     }
-    addHotel() {
+    showHotel() {
         return __awaiter(this, void 0, void 0, function* () {
             // fetch users from db
             const response = yield fetch(hotelsUrl);
             let hotels = yield response.json();
+            localStorage.setItem('hotels', JSON.stringify(hotels));
             // console.log(hotels)
             // add hotels to the existing table
             let html = ``;
@@ -205,21 +217,145 @@ class hotelsAdmin {
             return hotels;
         });
     }
-    deleteUser() {
+    addHotel() {
         return __awaiter(this, void 0, void 0, function* () {
-            let users = this.addUser();
-            deleteUserBtn.addEventListener('click', (event) => {
+            const hotelNameInput = document.getElementById('add-hotel-name');
+            const locationInput = document.getElementById('add-location');
+            const urlInput = document.getElementById('add-image-url');
+            const starsInput = document.getElementById('add-star-rating');
+            const priceInput = document.getElementById('add-price');
+            const addHotelBtn = document.getElementById('add-new-hotel');
+            addHotelBtn.addEventListener('click', (event) => {
                 event.preventDefault();
-                console.log('radaaa.. lunj bado');
+                let hotelName = hotelNameInput.value.trim();
+                let location = locationInput.value.trim();
+                let url = urlInput.value.trim();
+                let stars = starsInput.value.trim();
+                let price = priceInput.value.trim();
+                const newHotel = {
+                    name: hotelName,
+                    location,
+                    photo1: url,
+                    star_rating: stars,
+                    price
+                };
+                try {
+                    const response = fetch(hotelsUrl, {
+                        method: "POST",
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(newHotel)
+                    });
+                    if (response.ok) {
+                        alert('new hotel added succesfully');
+                    }
+                }
+                catch (error) {
+                    console.log(error);
+                }
             });
-            // fetch users from db
-            // allow for crud operations
         });
     }
-    updateUser() {
+}
+class toursAdmin {
+    constructor() {
+        this.showTour();
+    }
+    showTour() {
         return __awaiter(this, void 0, void 0, function* () {
             // fetch users from db
+            const response = yield fetch(toursUrl);
+            let tours = yield response.json();
+            localStorage.setItem('tours', JSON.stringify(tours));
+            // console.log(tours)
+            // add tours to the existing table
+            let html = ``;
+            tours.forEach((tour) => {
+                html += `
+                <tr>
+                <td>${tour.id}</td>
+                <td>${tour.name}</td>
+                <td>${tour.destination}</td>
+                <td>${tour.description}</td>
+                <td>${tour.price}</td>
+                <td class="actions">
+                    <button> Delete </button>
+              </td>
+                </tr>`;
+            });
+            addToursDiv.innerHTML = html;
             // allow for crud operations
+            return tours;
+        });
+    }
+    addTour() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const tourNameInput = document.getElementById('add-tour-name');
+            const destinationInput = document.getElementById('add-destination');
+            const descriptionInput = document.getElementById('add-description');
+            const priceInput = document.getElementById('add-price');
+            const addTourBtn = document.getElementById('add-new-tour');
+            addTourBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                let tourName = tourNameInput.value.trim();
+                let destination = destinationInput.value.trim();
+                let description = descriptionInput.value.trim();
+                let price = priceInput.value.trim();
+                const newTour = {
+                    name: tourName,
+                    destination,
+                    description,
+                    price
+                };
+                try {
+                    const response = fetch(toursUrl, {
+                        method: "POST",
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(newTour)
+                    });
+                    if (response.ok) {
+                        alert('new hotel added succesfully');
+                    }
+                }
+                catch (error) {
+                    console.log(error);
+                }
+            });
+        });
+    }
+}
+class bookingsAdmin {
+    constructor() {
+        this.showBookings();
+    }
+    showBookings() {
+        return __awaiter(this, void 0, void 0, function* () {
+            // fetch users from db
+            const response = yield fetch(bookingsUrl);
+            let bookings = yield response.json();
+            localStorage.setItem('bookings', JSON.stringify(bookings));
+            // console.log(bookings)
+            // add bookings to the existing table
+            let html = ``;
+            bookings.forEach((booking) => {
+                // ----------achieve this functionality!!!!
+                // const {id:string, username:string, email:string} = booking.user
+                // const {name:string,destination:string,price:number} = booking.tour
+                // const {name:string, location:string} = booking.hotel
+                html += `
+                <tr>
+                <td>${booking.id}</td>
+                <td>${booking.id}</td>
+                <td>${booking.id}</td>
+                <td>${booking.id}</td>
+                <td>${booking.id}</td>
+                <td class="actions">
+                    <button> Delete </button>
+              </td>
+                </tr>`;
+            });
+            addBookingsDiv.innerHTML = html;
+            // allow for crud operations
+            return bookings;
         });
     }
 }
@@ -228,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const displayUiInstance = new displayUi();
     const usersAdminInstance = new usersAdmin();
     const hotelsAdminInstance = new hotelsAdmin();
-    // const toursAdminInstance = new toursAdmin()
+    const toursAdminInstance = new toursAdmin();
     // const hotelsAdminInstance = new hotelsAdmin()
     // const bookingsAdminInstance = new bookingsAdmin()
     // invoke them
@@ -237,6 +373,9 @@ document.addEventListener('DOMContentLoaded', () => {
     usersAdminInstance.addUser();
     usersAdminInstance.deleteUser();
     hotelsAdminInstance;
+    hotelsAdminInstance.addHotel();
+    toursAdminInstance;
+    toursAdminInstance.addTour();
     // perform various operations
 });
 // export {hotelsUrl,usersUrl,bookingsUrl,toursUrl}

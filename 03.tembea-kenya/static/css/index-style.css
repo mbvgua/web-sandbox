@@ -9,6 +9,9 @@
   --lighter-purple: #7209b7;
   --white: #fff;
   --black: #000;
+  --bright-yellow: #fdc600;
+  /* --light-gray: #3b6064; */
+  --dark-gray: #415a77
   --main-spacing: .3rem;
   --word-spacing: .3rem;
 }
@@ -169,6 +172,7 @@
     background-color: #fff;
     /* color: #000; */
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    overflow-y: scroll;
   }
   
   .dropdown-items a {
@@ -669,6 +673,46 @@
     width: 55%;
     overflow: hidden;
     border: 1px solid;
+}
+.industry-bottom{
+	border: 1 px solid;
+	display: flex;
+	justify-content: center;
+	column-gap: 3rem;
+	justify-content: center;
+}
+
+.industry-bottom .rating-placard{
+	border: 1px solid var(--royal-purple);
+	border-radius: 10px;
+	padding: .5rem;
+	width: 15rem;
+}
+
+.industry-bottom .rating-placard img{
+	/*	HOW TO I CENTER THIS IMAGE WITHIN THE DIV?!?! */
+	border: 1px solid var(--light-gray);
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+	justify-content: center;
+    display: flex;
+}
+
+.industry-bottom .rating-placard .text{
+	color: var(--light-gray);
+    /* text-align: center; */
+}
+
+.industry-bottom .rating-placard .stars{
+	width: fit-content;
+	margin: 0px auto;
+}
+
+.industry-bottom .rating-placard .bx-star {
+	color: var(--bright-yellow);
+	fill: var(--bright-yellow);
 }
 
 /* -----end testimonials section----- */
