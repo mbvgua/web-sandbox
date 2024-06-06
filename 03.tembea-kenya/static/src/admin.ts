@@ -105,6 +105,15 @@ class displayUi{
 
     }
 
+    async logoutAdmin(){
+        const logoutBtn = document.querySelector('#logout')! as HTMLButtonElement
+
+        logoutBtn.addEventListener('click', (event)=>{
+            event.preventDefault()
+            window.location.href = 'login.html'
+        })
+    }
+
 
 }
 
@@ -115,6 +124,7 @@ class usersAdmin{
 
     constructor(){
         this.showUser()
+        // this.deleteUser(id)
     }
 
     async showUser():Promise<void>{
@@ -135,7 +145,7 @@ class usersAdmin{
                 <td>${user.password}</td>
                 <td>${user.priviledges}</td>
                 <td class="actions">
-                    <button onclick="this.deleteUser()"> Delete </button>
+                    <button id="delete-user" onclick="this.removeUser(${user.id})"> Delete </button>
               </td>
                 </tr>`
         })
@@ -190,16 +200,17 @@ class usersAdmin{
     }
 
 
-    async deleteUser(id:string){
-        let users: string | null = JSON.parse(localStorage.getItem('users'))
-        // console.log(users)
+    async deleteUser(id:string):Promise<void>{
+        await fetch(`http://localhost:3000/users/${id}`,{
+            method: 'DELETE',
+        })
+    }
 
-        localStorage.removeItem(id)
-        // const deleteBtn = document.querySelector('#delete-existing-user')! as HTMLButtonElement
-        
-        // deleteBtn.addEventListener('click', (event)=>{
-        //     event.preventDefault()
-        // })
+    async removeUser(id:string){
+        const deleteBtn = document.querySelector('#delete-user')! as HTMLButtonElement
+        deleteBtn.addEventListener('click',()=>{
+            this.deleteUser(id)
+        })
     }
     
     // async updateUser(){
@@ -250,6 +261,7 @@ class hotelsAdmin{
         const hotelNameInput = document.getElementById('add-hotel-name')! as HTMLInputElement
         const locationInput = document.getElementById('add-location')! as HTMLInputElement
         const urlInput = document.getElementById('add-image-url')! as HTMLInputElement
+        const descInput = document.getElementById('add-description')! as HTMLInputElement
         const starsInput = document.getElementById('add-star-rating')! as HTMLInputElement
         const priceInput = document.getElementById('add-price')! as HTMLInputElement
 
@@ -261,13 +273,15 @@ class hotelsAdmin{
             let hotelName:string = hotelNameInput.value.trim()
             let location:string = locationInput.value.trim()
             let url:string = urlInput.value.trim()
+            let description:string = descInput.value.trim()
             let stars:string = starsInput.value.trim()
             let price:string = priceInput.value.trim()
 
             const newHotel = {
                 name : hotelName,
                 location,
-                photo1: url,
+                url,
+                description,
                 star_rating : stars,
                 price
             }
@@ -340,6 +354,7 @@ class toursAdmin{
         const tourNameInput = document.getElementById('add-tour-name')! as HTMLInputElement
         const destinationInput = document.getElementById('add-destination')! as HTMLInputElement
         const descriptionInput = document.getElementById('add-description')! as HTMLInputElement
+        const urlInput = document.getElementById('add-url')! as HTMLInputElement
         const priceInput = document.getElementById('add-price')! as HTMLInputElement
 
         const addTourBtn = document.getElementById('add-new-tour')! as HTMLButtonElement
@@ -349,12 +364,14 @@ class toursAdmin{
 
             let tourName:string = tourNameInput.value.trim()
             let destination:string = destinationInput.value.trim()
+            let url:string = urlInput.value.trim()
             let description:string = descriptionInput.value.trim()
             let price:string = priceInput.value.trim()
 
             const newTour = {
                 name: tourName,
                 destination,
+                url,
                 description,
                 price
             }
@@ -476,7 +493,7 @@ class bookingsAdmin{
 
     // }
     
-}
+
 
 
 
@@ -492,10 +509,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     // invoke them
     displayUiInstance
+    displayUiInstance.logoutAdmin()
 
     usersAdminInstance
     usersAdminInstance.addUser() 
-    usersAdminInstance.deleteUser() 
+    // usersAdminInstance.deleteUser(id) 
         
  
 
@@ -509,7 +527,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     // perform various operations
 
 })
-
 
 // export {hotelsUrl,usersUrl,bookingsUrl,toursUrl}
 

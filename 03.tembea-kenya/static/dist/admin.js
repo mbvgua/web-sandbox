@@ -106,11 +106,21 @@ class displayUi {
             });
         });
     }
+    logoutAdmin() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const logoutBtn = document.querySelector('#logout');
+            logoutBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                window.location.href = 'login.html';
+            });
+        });
+    }
 }
 class usersAdmin {
     // private users: usersData[]
     constructor() {
         this.showUser();
+        // this.deleteUser(id)
     }
     showUser() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -130,7 +140,7 @@ class usersAdmin {
                 <td>${user.password}</td>
                 <td>${user.priviledges}</td>
                 <td class="actions">
-                    <button onclick="this.deleteUser()"> Delete </button>
+                    <button id="delete-user" onclick="this.removeUser(${user.id})"> Delete </button>
               </td>
                 </tr>`;
             });
@@ -176,13 +186,17 @@ class usersAdmin {
     }
     deleteUser(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            let users = JSON.parse(localStorage.getItem('users'));
-            // console.log(users)
-            localStorage.removeItem(id);
-            // const deleteBtn = document.querySelector('#delete-existing-user')! as HTMLButtonElement
-            // deleteBtn.addEventListener('click', (event)=>{
-            //     event.preventDefault()
-            // })
+            yield fetch(`http://localhost:3000/users/${id}`, {
+                method: 'DELETE',
+            });
+        });
+    }
+    removeUser(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const deleteBtn = document.querySelector('#delete-user');
+            deleteBtn.addEventListener('click', () => {
+                this.deleteUser(id);
+            });
         });
     }
 }
@@ -222,6 +236,7 @@ class hotelsAdmin {
             const hotelNameInput = document.getElementById('add-hotel-name');
             const locationInput = document.getElementById('add-location');
             const urlInput = document.getElementById('add-image-url');
+            const descInput = document.getElementById('add-description');
             const starsInput = document.getElementById('add-star-rating');
             const priceInput = document.getElementById('add-price');
             const addHotelBtn = document.getElementById('add-new-hotel');
@@ -230,12 +245,14 @@ class hotelsAdmin {
                 let hotelName = hotelNameInput.value.trim();
                 let location = locationInput.value.trim();
                 let url = urlInput.value.trim();
+                let description = descInput.value.trim();
                 let stars = starsInput.value.trim();
                 let price = priceInput.value.trim();
                 const newHotel = {
                     name: hotelName,
                     location,
-                    photo1: url,
+                    url,
+                    description,
                     star_rating: stars,
                     price
                 };
@@ -292,17 +309,20 @@ class toursAdmin {
             const tourNameInput = document.getElementById('add-tour-name');
             const destinationInput = document.getElementById('add-destination');
             const descriptionInput = document.getElementById('add-description');
+            const urlInput = document.getElementById('add-url');
             const priceInput = document.getElementById('add-price');
             const addTourBtn = document.getElementById('add-new-tour');
             addTourBtn.addEventListener('click', (event) => {
                 event.preventDefault();
                 let tourName = tourNameInput.value.trim();
                 let destination = destinationInput.value.trim();
+                let url = urlInput.value.trim();
                 let description = descriptionInput.value.trim();
                 let price = priceInput.value.trim();
                 const newTour = {
                     name: tourName,
                     destination,
+                    url,
                     description,
                     price
                 };
@@ -359,6 +379,9 @@ class bookingsAdmin {
         });
     }
 }
+// async updateHotel(){
+//     console.log('radaaa.. lunj bado')
+// }
 document.addEventListener('DOMContentLoaded', () => {
     // instantiate all the classes
     const displayUiInstance = new displayUi();
@@ -369,9 +392,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // const bookingsAdminInstance = new bookingsAdmin()
     // invoke them
     displayUiInstance;
+    displayUiInstance.logoutAdmin();
     usersAdminInstance;
     usersAdminInstance.addUser();
-    usersAdminInstance.deleteUser();
+    // usersAdminInstance.deleteUser(id) 
     hotelsAdminInstance;
     hotelsAdminInstance.addHotel();
     toursAdminInstance;

@@ -430,43 +430,55 @@
     flex-wrap: wrap;
 }
 
-.choose-destination .destination-card{
-    height: 21rem;
-    width: 21rem;
-    /* border: 1px solid; */
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px 5px rgba(140,140,140,0.5);
-    padding: .9rem;
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
-}
+
 
 /* ------------------------------------------------------ */
-.destination-card .img{
-    /* border: 1px solid; */
+
+.choose-destination .destination-card{
     display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 70%;
+    padding: .4rem;
+    gap: .4rem;
+    height: 22rem;
+    width: 31rem;
+    /* border: 1px solid; */
+    /* border: 2px solid rgba(255,255,255,.2); */
+    /* border-radius: 15px; */
+    /* box-shadow: 3px 3px 3px 3px rgba(140,140,140,0.5); */
+}
+.choose-destination .destination-card .img{
+    width: 55%;
     overflow: hidden;
-    transition: all 0.9ms ease; /*---MAKE THIS BETTER----*/
+    /* border: 1px solid; */
+    border-radius: 10px;
 }
 
-.destination-card .title{
+.choose-destination .destination-card .img img{
+    height: 100%;
+    width: 100%;
+}
+.choose-destination .destination-card .content{
+    width: 45%;
+    display: inline-flex;
+    flex-direction: column;
     /* border: 1px solid; */
-    font-size: 1.2rem;
+    padding: .4rem;
+    gap: .7rem;
+    margin: 0px auto;
+    /* justify-content: center; */
+    align-items: center;
+}
+.choose-destination .destination-card .content .title{
+    font-size: 1.5rem;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--royal-purple);
-    display: inline-flex;
-    margin: 0px auto;
-    background-color: var(--white);
-
 }
-.destination-card button{
-    width: 50%;
-    margin: 0px auto;
+
+.choose-destination .destination-card .content .price{
+    letter-spacing: .3rem;
+    font-weight: 300;
+}
+.choose-destination .destination-card .content .info{
     border: 2px solid var(--royal-purple);
     border-radius: 20px;
     padding: .4rem;
@@ -475,16 +487,10 @@
     color: var(--royal-purple);
     font-weight: 600;
 }
-
-.destination-card button:hover{
+.choose-destination .destination-card .content .info:hover{
     color: var(--white);
     background-color: var(--royal-purple);
-}
 
-.destination-card .price{
-    /* border: 1px solid    ; */
-    letter-spacing: .3rem;
-    font-weight: 300;
 }
 /* ---end popular destinations div */
 
@@ -839,7 +845,80 @@
 /* ------end begin styling the footer------ */
 
 
+/* -----BOOKING FORM STYLING */
 
+.form-container-tours {
+    /* max-width: 500px; */
+    width: 40%;
+    margin: 0 auto;
+    padding: .9rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    display: none;
+    z-index: 1;
+    position: absolute;
+    left: 30%;
+    /* filter: blur(20px); */
+}
+.form-container-hotels {
+    /* max-width: 500px; */
+    width: 40%;
+    margin: 0 auto;
+    padding: .9rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    display: none;
+    z-index: 1;
+    position: absolute;
+    left: 30%;
+    /* filter: blur(20px); */
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input{
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.form-group button {
+    width: 30%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: var(--white);
+    color: var(--royal-purple);
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.form-group button:hover {
+    background-color: var(--royal-purple);
+    color: var(--white);
+}
+
+/* -----NOT WORKING AS EXPECTED */
+.form-group .button{
+    display: inline-flex;
+    /* flex-direction: column; */
+    gap: .9rem;
+}
+
+/* -----END BOOKING FORM STYLING */
 
 
 

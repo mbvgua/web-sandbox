@@ -209,7 +209,40 @@
                 </p>
             </div>
 
-            <div class="bottom tour-div">
+            <div class="form-container-tours">
+                <h2>Hotel Booking Form</h2>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">Tour Destination:</label>
+                        <select id="destination" name="destination" required>
+                            <option value="">Select a Destination</option>
+                            <option value="Hotel A">Destination A</option>
+                            <option value="Hotel B">Destination B</option>
+                            <option value="Hotel C">Destination C</option>
+                        </select>
+                    </div>
+  
+                    <div class="form-group">
+                        <label for="bookingDate">Booking Date:</label>
+                        <input type="date" id="bookingDate" name="bookingDate" required>
+                    </div>
+                    <div class="form-group button">
+                        <button type="submit">Submit</button>
+                        <button type="submit" id="close-btn">Close</button>
+                    </div>
+                </form>
+            </div>
+      
+
+            <div class="bottom tour-div"> 
 
                 <!-- begin destination card 1 -->
                 <!-- <div class="destination-card">
@@ -239,6 +272,39 @@
                     distinctive experience
                 </p>
             </div>
+
+            <div class="form-container-hotels">
+                <h2>Hotel Booking Form</h2>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hotel">Hotel of Choice:</label>
+                        <select id="hotel" name="hotel" required>
+                            <option value="">Select a hotel</option>
+                            <option value="Hotel A">Hotel A</option>
+                            <option value="Hotel B">Hotel B</option>
+                            <option value="Hotel C">Hotel C</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingDate">Booking Date:</label>
+                        <input type="date" id="bookingDate" name="bookingDate" required>
+                    </div>
+                    <div class="form-group button">
+                        <button type="submit">Submit</button>
+                        <button type="submit" id="close-btn">Close</button>
+                    </div>
+                </form>
+            </div>
+      
 
             <div class="bottom hotel-div">
 
@@ -493,35 +559,6 @@
     </div>
     <!-- main container ending -->
     
-    <i class='bx bx-world'></i>
-    
-    <i class='bx bxs-copyright'></i>
-    
-
-    <i class='bx bx-right-arrow-alt'></i>
-    <i class='bx bxs-chevron-right'></i>
-    <i class='bx bxs-chevron-left'></i>
-    <i class='bx bx-check-circle'></i>
-    <i class='bx bx-log-in'></i>
-    <i class='bx bx-log-out'></i>
-    <i class='bx bx-wallet'></i>
-    <i class='bx bx-money'></i>
-    
-    <i class='bx bxs-map'></i>
-    <i class='bx bxs-ship'></i>
-    <i class='bx bx-trip'></i>
-    <i class='bx bx-restaurant'></i>
-    <i class='bx bx-spa'></i>
-    <i class='bx bx-rocket'></i>
-    <i class='bx bxs-backpack'></i>
-    <i class='bx bxl-facebook'></i>
-    <i class='bx bxl-twitter'></i>
-    <i class='bx bxl-google'></i>
-    <i class='bx bxl-linkedin'></i>
-    <i class='bx bxl-discord-alt'></i>
-    <i class='bx bxl-whatsapp'></i>
-    <i class='bx bxs-plane-take-off'></i>
-    <i class='bx bx-swim'></i>
     <script src="./static/dist/script.js"></script>
 </body>
 </html>

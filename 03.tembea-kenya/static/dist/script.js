@@ -33,7 +33,7 @@ class hotelOperations {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const response = yield fetch(hotelsUrl);
-                const hotels = yield response.json();
+                let hotels = yield response.json();
                 return hotels;
             }
             catch (error) {
@@ -44,23 +44,25 @@ class hotelOperations {
     updateHotelsUI() {
         return __awaiter(this, void 0, void 0, function* () {
             let hotels = yield this.getHotels();
+            console.log(hotels);
             let html = '';
             hotels.forEach(hotel => {
-                // destructure the hotel array
-                let id = hotel.id;
-                let name = hotel.name;
-                let photo = hotel.photo1;
-                let rates = hotel.price;
-                html += `<div class="hotel-card" pid="${id}">
+                // // destructure the hotel array
+                // let id = hotel.id
+                // let name = hotel.name
+                // let description = hotel.description
+                // let url = hotel.url
+                // let price = hotel.price
+                html += `<div class="hotel-card" pid="${hotel.id}">
                 <div class="img">
-                    <img src="${photo}" alt="hotel pic">
+                    <img src="${hotel.url}" alt="hotel pic">
                 </div>
                 <div class="content">
 
-                    <p class="title"> ${name} </p>
-                    <p class="desc"> Go placidly amid the noise and haste and remember what peace there may be in silence</p>
-                    <p class="price"> $ ${rates} </p>
-                    <p class="info" id="book-hotel"> see full itenerary <i class='bx bx-right-arrow-alt'></i></i></p>
+                    <p class="title"> ${hotel.name} </p>
+                    <p class="desc"> ${hotel.description}</p>
+                    <p class="price"> $ ${hotel.price} </p>
+                    <button class="info" id="book-hotel" onclick="hotelsInstance.bookHotel()"> see full itenerary <i class='bx bx-right-arrow-alt'></i></i></button>
                     <p>
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -82,6 +84,30 @@ class hotelOperations {
                 html += `<a href="#">${hotel.name}</a>`;
             });
             hotelsDropdown.innerHTML = html;
+        });
+    }
+    bookHotel() {
+        return __awaiter(this, void 0, void 0, function* () {
+            // console.log('radaaaa') -> now it works
+            const formDiv = document.querySelector('.form-container-hotels');
+            formDiv.style.display = 'block';
+            // const
+        });
+    }
+    closeHotelForm() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const closeDivBtn = document.querySelector('#close-btn');
+            const formDiv = document.querySelector('.form-container-hotels');
+            closeDivBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                // console.log(event.target.parentElement.parentElement)
+                // event.target.parentElement.parentElement,dispay = 'none'
+                formDiv.style.display = 'none';
+                /* i think has the problem for chaining.
+                next time revamp the app.. instead use functionality for appendig and
+                removing thre respective
+                */
+            });
         });
     }
 }
@@ -109,15 +135,20 @@ class tourOperations {
         return __awaiter(this, void 0, void 0, function* () {
             let tours = yield this.getTours();
             let html = '';
-            tours.forEach(tour => {
-                html += `<div class="destination-card" id="${tour.id}">
-                        <div class="img">
-                            <img src="${tour.photo1}" alt="destination pic">
-                        </div>
-                            <p class="title"> ${tour.name} </p>
-                            <p class="price"> $ ${tour.price} </p>
-                        <button id="book-destination"> book destination</button>
-                    </div>`;
+            tours.forEach((tour) => {
+                html += `
+            <div class="destination-card" pid="${tour.id}">
+                <div class="img">
+                    <img src="${tour.url}" alt="tour pic">
+                </div>
+                <div class="content">
+
+                    <p class="title"> ${tour.name} </p>
+                    <p class="price"> $ ${tour.price} </p>
+
+                    <button class="info" onclick="toursInstance.bookTour()"> book tour </button>
+                </div>
+            </div>`;
             });
             tourDiv.innerHTML = html;
         });
@@ -133,11 +164,38 @@ class tourOperations {
             toursDropdown.innerHTML = html;
         });
     }
+    bookTour() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const formDiv = document.querySelector('.form-container-tours');
+            formDiv.style.display = 'block';
+        });
+    }
 }
+// // signup form popup class
+// class bookingForm{
+//         constructor(){
+//                 this.showForm()
+//             }
+//         async showForm(){
+//             const bookHotel = document.querySelector('#book-hotel')! as HTMLElement
+//             const bookTour = document.querySelector('#book-tour')! as HTMLElement
+//             bookHotel.addEventListener('click', (event)=>{
+//                 event.preventDefault()
+//                 console.log('ayeeee')
+//             })
+//             bookTour.addEventListener('click', (event)=>{
+//                 event.preventDefault()
+//                 console.log('ayeyaah')
+//             })
+//     }
+// }
 const hotelsInstance = new hotelOperations();
 const toursInstance = new tourOperations();
+// const bookingInstance = new bookingForm()
 // invoke the classes
 hotelsInstance;
 hotelsInstance.hotelsDropdown();
+hotelsInstance.closeHotelForm();
 toursInstance;
 toursInstance.toursDropdown();
+// bookingInstance
