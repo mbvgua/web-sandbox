@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "27f0",
+      "email": "admin@gmail.com",
+      "username": "admin",
+      "password": "Shanara17!",
+      "priviledges": "admin"
+    },
+    {
+      "id": "0697",
+      "email": "blue@gmail.com",
+      "username": "blue",
+      "password": "!Nakamura17",
+      "priviledges": "client"
+    }
+
+  ]
+}

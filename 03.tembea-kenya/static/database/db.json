@@ -1,0 +1,99 @@
+{
+  "users": [
+    {
+      "id": "27f0",
+      "email": "admin@gmail.com",
+      "username": "admin",
+      "password": "Shanara17!",
+      "priviledges": "admin"
+    },
+    {
+      "id": "0697",
+      "email": "blue@gmail.com",
+      "username": "blue",
+      "password": "!Nakamura17",
+      "priviledges": "client"
+    },
+    {
+      "id": "0697",
+      "email": "lancelot@gmail.com",
+      "username": "Lancelot",
+      "password": "!ShoheiOhtani7",
+      "priviledges": "client"
+    },
+    {
+      "id": "b1c9",
+      "email": "mkurugenzi@gmail.com",
+      "username": "mkurugenzi",
+      "password": "alaaah!",
+      "priviledges": "client"
+    },
+    {
+      "id": "3e7c",
+      "email": "105845499+mbvgua@users.noreply.github.com",
+      "username": "daagi",
+      "password": "Shanara17!",
+      "priviledges": "client"
+    },
+    {
+      "id": "113f",
+      "email": "jonathan13@gmail.com",
+      "username": "daagi",
+      "password": "Shanara17!",
+      "priviledges": "client"
+    },
+    {
+      "id": "bebc",
+      "email": "mkuu12@gmail.com",
+      "username": "daagi",
+      "password": "Nakamura54!",
+      "priviledges": "client"
+    },
+    {
+      "id": "ba85",
+      "email": "jonathan@gmail.com",
+      "username": "jonathan",
+      "password": "Manchester23!",
+      "priviledges": "client"
+    }
+  ],
+  "bookings": [],
+  "hotels": [
+    {
+      "id": "e159",
+      "name": "Labda Nichiz Mahn",
+      "location": "Within",
+      "url": "https://i.pinimg.com/236x/83/e1/be/83e1be3c454085429418d6b455b98280.jpg",
+      "description": "the place to go when your not sure of things",
+      "star_rating": "4/5",
+      "price": "1000"
+    },
+    {
+      "id": "3a97",
+      "name": "salama",
+      "location": "nairobi",
+      "url": "https://i.pinimg.com/236x/1a/55/ad/1a55ad12640a86cea9277c19cbc8b37f.jpg",
+      "description": "a good hotel",
+      "star_rating": "5/5",
+      "price": "200"
+    }
+  ],
+  "tours": [
+    {
+      "id": "3e49",
+      "name": "a quiet place",
+      "destination": "infinity",
+      "url": "https://i.pinimg.com/236x/b0/15/76/b015765608de947111938213cbbabadb.jpg",
+      "description": "",
+      "price": ""
+    },
+    {
+      "id": "a80e",
+      "name": "vening session",
+      "destination": "infinitum",
+      "url": "https://i.pinimg.com/236x/d5/ad/86/d5ad867039c2d2afb5e55608dc15d78a.jpg",
+      "description": "",
+      "price": ""
+    }
+  ]
+}
