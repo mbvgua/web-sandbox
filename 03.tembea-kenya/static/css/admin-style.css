@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+:root{
+    --mainColour: #212529;
+    --otherColor: #450920;
+    --royal-purple: #7209b7;
+    /* --royal-purple: #7851A9; */
+    --lighter-purple: #7209b7;
+    --white: #fff;
+    --black: #000;
+    --main-spacing: .3rem;
+    --word-spacing: .3rem;
+    
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.container{
+    /* height: 100vw    ; */
+    background-color: var(--white);
+    display: flex;
+    /* height: 100%; */
+}
+
+
+
+/* style the sidebar */
+.sidebar-panel{
+    background-color: var(--royal-purple);
+    /* border-right: .5px solid; */
+ 	width: 23%;
+    /* height: 100%; */
+	padding: .4rem .4rem;/* Order followed is: {Top & bottom} {Left & Right} */
+}
+
+.sidebar-panel .top{
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sidebar-panel ul li{
+    list-style-type: none;
+    line-height: 2rem;
+    height: 55px;
+    width: 90%;
+    margin: .4rem auto;
+}
+
+.sidebar-panel ul li a{
+    color: var(--white);
+    display:flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+    font-weight: 500;
+    font-size: large;
+}
+
+.sidebar-panel ul li a:hover{
+    color: var(--royal-purple);
+    background-color: var(--white);
+
+}
+
+.sidebar-panel ul li a i{
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+/* ---end sidebar styling */
+
+/* ---begin main-ceontent styling--- */
+.main-content{
+    background-color: var(--white);
+    width: calc(100% - 23%);
+    display: flex;
+    flex-direction: column;
+    /* height: 100%; */
+}
+/* ---end main-ceontent styling--- */
+
+
+/* style the users table */
+/* General table styles */
+.table {
+    margin: 0px auto;
+    /* margin-bottom: 1rem; */
+    color: #212529;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+.thead-dark th {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #454d55;
+}
+  
+  /* Striped rows */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+ 
+  /* Hover effect */
+.table-hover tbody tr:hover {
+    color: #212529;
+    background-color: rgba(0, 0, 0, 0.075);
+}
+  
+  /* Bordered table */
+.table-bordered {
+    border: 1px solid #dee2e6;
+ }
+  
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+ }
+  
+  /* Margin and padding utilities */
+.mt-5 {
+   margin-top: 3rem;
+}
+ 
+ .mb-4 {
+   margin-bottom: 1.5rem;
+}
+
+.actions{
+    display: flex;
+    flex-direction: column;
+    padding: .2rem;
+    margin: .2rem;
+}
+
+.actions button{
+    text-decoration: none;
+    padding: .1rem;
+}
+
+.input input{
+    width: 100%;
+}
+  
+/* style the users table */
+
+
+
+/* -----MAKING THE DIV INVISIBLE */
+#home-div{
+    /* display: flex; */
+    height: 100%;
+    width: 100%;
+    background: url("../images/ocean.jpg") center/cover no-repeat;
+}
+.section-1,.section-2,.section-3,.section-4,.section-5{
+    display: none;
+    visibility: hidden;
+    width:100%;
+    padding: .9rem;
+}
