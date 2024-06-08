@@ -1,7 +1,7 @@
 <!-- create the get back to top link -->
 <a name="readme-top"></a>
 
-# **Python Web Sandbox** [![wakatime](https://wakatime.com/badge/user/018d2724-5245-41f2-bacd-7b68daa01c31/project/018eee0e-c6b3-4dd2-a1b5-9891ccac257c.svg)](https://wakatime.com/badge/user/018d2724-5245-41f2-bacd-7b68daa01c31/project/018eee0e-c6b3-4dd2-a1b5-9891ccac257c)
+# **Python Web Sandbox** [![wakatime](https://wakatime.com/badge/user/018d2724-5245-41f2-bacd-7b68daa01c31/project/c45f70fa-56c6-4418-8d74-88c56e7bc7d3.svg)](https://wakatime.com/badge/user/018d2724-5245-41f2-bacd-7b68daa01c31/project/c45f70fa-56c6-4418-8d74-88c56e7bc7d3)
  This repository will serve as a playground for experimenting with web based technologies. I took a project based approach to understand various popular languages and frameworks.
 
 
